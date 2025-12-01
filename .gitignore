@@ -1,0 +1,103 @@
+# =========================
+#   C / C++ Build Files
+# =========================
+
+# Compiled object files
+*.o
+*.obj
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled static libraries
+*.a
+*.la
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Linker output
+*.map
+*.ld
+
+# =========================
+#   Build / Debug Folders
+# =========================
+build/
+Build/
+bin/
+Bin/
+debug/
+Debug/
+release/
+Release/
+dist/
+
+# =========================
+#   IDE / Editor Files
+# =========================
+
+# Visual Studio Code
+.vscode/
+
+# CLion / JetBrains / CMake
+.idea/
+cmake-build*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+Makefile.*
+*.cmake
+
+# Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.cache
+*.opensdf
+*.sdf
+*.ipch
+
+# CodeBlocks
+*.layout
+*.cbp
+
+# Dev-C++
+*.dev
+
+# =========================
+#   Logs & Temp Files
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# =========================
+#   OS Files
+# =========================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# =========================
+#   Python helper scripts (only if you use them)
+# =========================
+__pycache__/
+*.pyc
