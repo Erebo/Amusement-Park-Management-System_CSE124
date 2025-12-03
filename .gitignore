@@ -54,8 +54,8 @@ dist/
 cmake-build*/
 CMakeCache.txt
 CMakeFiles/
-Makefile
-Makefile.*
+#Makefile
+#Makefile.*
 *.cmake
 
 # Visual Studio
