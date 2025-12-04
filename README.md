@@ -10,7 +10,7 @@ You can run this project in **two ways**:
 
 ### **1. Run the precompiled executable (Windows)**
 
-Simply run: `main.exe`
+Simply click on the `main.exe` file
 
 ### **2. Compile and run from source**
 
