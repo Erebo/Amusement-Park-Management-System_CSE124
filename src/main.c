@@ -5,6 +5,8 @@ int chooseDate2025();
 void showOffer2025(int date);   // <-- ADD THIS LINE
 
 int main() {
+
+    
     printf(" __        __   _                            \n");
     printf(" \\ \\      / /__| | ___ ___  _ __ ___   ___  \n");
     printf("  \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ \n");
