@@ -11,25 +11,29 @@ int main() {
 
     int selectedDate = chooseDate2025();
 
-    printf("\nYou selected: December %d, 2025\n", selectedDate);
+    printf("\nYOU SELECTED: DECEMBER %d, 2025\n", selectedDate);
 
     showOffer2025(selectedDate);
 
     char userName[100];
     int userAge;
     float userHeight, userWeight;
-    printf("Enter you name: ");
-    scanf(" %[^\n]", &userName);
-    printf("Enter your age: ");
+
+    printf("ENTER YOUR NAME: ");
+    scanf(" %[^\n]", userName);  // ✔ FIXED (NO &userName)
+
+    printf("ENTER YOUR AGE: ");
     scanf("%d", &userAge);
-    printf("Enter your height (in ft.): ");
+
+    printf("ENTER YOUR HEIGHT (IN FT.): ");
     scanf("%f", &userHeight);
-    printf("Enter your weight(in kg): ");
+
+    printf("ENTER YOUR WEIGHT (IN KG): ");
     scanf("%f", &userWeight);
 
     FILE *userDataForWriting, *userDataForReading;
 
-    int lastSerial = 0; 
+    int lastSerial = 0;
 
     userDataForReading = fopen("userData.txt", "r");
 
@@ -39,7 +43,7 @@ int main() {
         while (fgets(line, sizeof(line), userDataForReading)) {
             int serial;
             if (sscanf(line, "serial: %d", &serial) == 1) {
-                lastSerial = serial; 
+                lastSerial = serial;
             }
         }
 
@@ -62,24 +66,28 @@ int main() {
     printf("%s\n", data);
     fclose(userDataForReading);
 
-    printf("Welcome %s, Where you want to go: \n", userName);
-    printf("1) Fantasy Kingdom\n");
-    printf("2) Water kingdom\n");
+    printf("\nWELCOME %s, WHERE DO YOU WANT TO GO?\n", userName);
+    printf("1) FANTASY KINGDOM\n");
+    printf("2) WATER KINGDOM\n");
+
     int parkSelection;
-    chooseOptionAgain:
-        printf("> ");
-        scanf("%d", &parkSelection);
+
+chooseOptionAgain:
+    printf("> ");
+    scanf("%d", &parkSelection);
 
     switch (parkSelection) {
-    case 1:
-        fantasyKingdomWelcoming();
-        break;
-    case 2:
-        waterKingdomWelcoming();
-        break;
-    default:
-        printf("Invalid option\n");
-        goto chooseOptionAgain;
+        case 1:
+            fantasyKingdomWelcoming();
+            break;
+
+        case 2:
+            waterKingdomWelcoming();
+            break;
+
+        default:
+            printf("INVALID OPTION! TRY AGAIN.\n");
+            goto chooseOptionAgain;
     }
 
     return 0;
