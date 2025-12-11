@@ -92,8 +92,26 @@ void waterKingdomRideChoosingOption() {
             userDoneWithChoosing:
                 printf("Rides you choosed: ");
 
-                for (int i = 0 ; i<arrIdx  ; i++) {
-                    printf("%d ", waterKingdomUserRideChoises[i]);
+                for (int i = 0; i < arrIdx; i++) {
+                    if (i + 1 == 1) {
+                        printf("Family Pool ");
+                    } else if (i + 1 == 2) {
+                        printf("Wave Pool ");
+                    } else if (i + 1 == 3) {
+                        printf("Dancing Zone ");
+                    } else if (i + 1 == 4) {
+                        printf("Greer Slide ");
+                    } else if (i + 1 == 5) {
+                        printf("Multi Slide ");
+                    } else if (i + 1 == 6) {
+                        printf("Yellow Fly ");
+                    } else if (i + 1 == 7) {
+                        printf("Blue Tunnel ");
+                    } else if (i + 1 == 8) {
+                        printf("Red Tunnel ");
+                    } else if (i + 1 == 9) {
+                        printf("Lazy River ");
+                    }
                 }
         } else {
             printf("You've choosen maximum number of rides, can't choose anymore\n");
