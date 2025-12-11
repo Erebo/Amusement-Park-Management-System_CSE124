@@ -20,71 +20,81 @@ void waterKingdomRideChoosingOption() {
         int waterKingdomUserRideChoise;
 
         if (arrIdx >= 0 && arrIdx <= 7){
+            printf("If you are done with choosing, type 0\n");
             printf("> ");
             scanf("%d", &waterKingdomUserRideChoise);
 
-            switch (waterKingdomUserRideChoise)
-            {
-            case 1:
-                waterKingdomUserRideChoises[arrIdx] = 1;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+            switch (waterKingdomUserRideChoise){
+                case 0:
+                    goto userDoneWithChoosing;
+                    break;
+                case 1:
+                    waterKingdomUserRideChoises[arrIdx] = 1;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 2:
-                waterKingdomUserRideChoises[arrIdx] = 2;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 2:
+                    waterKingdomUserRideChoises[arrIdx] = 2;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 3:
-                waterKingdomUserRideChoises[arrIdx] = 3;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 3:
+                    waterKingdomUserRideChoises[arrIdx] = 3;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 4:
-                waterKingdomUserRideChoises[arrIdx] = 4;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 4:
+                    waterKingdomUserRideChoises[arrIdx] = 4;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 5:
-                waterKingdomUserRideChoises[arrIdx] = 5;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 5:
+                    waterKingdomUserRideChoises[arrIdx] = 5;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 6:
-                waterKingdomUserRideChoises[arrIdx] = 6;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 6:
+                    waterKingdomUserRideChoises[arrIdx] = 6;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 8:
-                waterKingdomUserRideChoises[arrIdx] = 8;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 8:
+                    waterKingdomUserRideChoises[arrIdx] = 8;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            case 9:
-                waterKingdomUserRideChoises[arrIdx] = 9;
-                arrIdx++;
-                printf("Option selected!\n");
-                goto chooseAgain;
-                break;
+                case 9:
+                    waterKingdomUserRideChoises[arrIdx] = 9;
+                    arrIdx++;
+                    printf("Option selected!\n");
+                    goto chooseAgain;
+                    break;
 
-            default:
-                printf("Invalid option!\n");
-                goto chooseAgain;
+                default:
+                    printf("Invalid option!\n");
+                    goto chooseAgain;
             }
+        
+            userDoneWithChoosing:
+                printf("Rides you choosed: ");
+
+                for (int i = 0 ; i<arrIdx  ; i++) {
+                    printf("%d ", waterKingdomUserRideChoises[i]);
+                }
         } else {
             printf("You've choosen maximum number of rides, can't choose anymore\n");
         }
