@@ -2,10 +2,6 @@
 
 // Display Welcome Screen + Calendar
 void printDecember2025Calendar() {
-
-    printf("\n===========================================\n");
-    printf("        WELCOME TO FANTASY KINGDOM\n");
-    printf("===========================================\n");
     printf("  Please select your suitable date below:\n");
     printf("===========================================\n\n");
 
