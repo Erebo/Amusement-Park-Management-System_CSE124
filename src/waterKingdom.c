@@ -16,7 +16,7 @@ void waterKingdomRideChoosingOption() {
     int waterKingdomUserRideChoises[15];
 
     chooseAgain:
-        int arrIdx;
+        int arrIdx = 0;
         int waterKingdomUserRideChoise;
 
         if (arrIdx >= 0 && arrIdx <= 7){
