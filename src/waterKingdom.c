@@ -16,7 +16,7 @@ void waterKingdomRideChoosingOption() {
     int waterKingdomUserRideChoises[15];
 
     chooseAgain:
-        int arrIdx = 0;
+        int arrIdx;
         int waterKingdomUserRideChoise;
 
         if (arrIdx >= 0 && arrIdx <= 7){
@@ -122,7 +122,6 @@ void waterKingdomRideChoosingOption() {
 
 void waterKingdomWelcoming() {
 
-    // 🔥 FULL CAPS ASCII ART BANNER (UPDATED)
     printf("__        __   _    _                     _          _   _                               \n");
     printf("\\ \\      / /__| | _| | ___  ___  _ __   | | ___  __| | | | __ ___   ____ _ _ __   ___   \n");
     printf(" \\ \\ /\\ / / _ \\ |/ / |/ _ \\/ _ \\| '_ \\  | |/ _ \\/ _` | | |/ _` \\ \\ / / _` | '_ \\ / _ \\  \n");
