@@ -1,93 +1,84 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+// calendar.c
 void printDecember2025Calendar();
 int chooseDate2025();
+
+// offers.c
 void showOffer2025(int date);
+
+// fantasy & water kingdom
 void fantasyKingdomWelcoming();
 void waterKingdomWelcoming();
 
+// entryexit.c
+void initEntryExitSystem();
+void enterAsLocal();   // General Pass
+void enterAsVIP();     // VIP Pass
+void entryExitSystem();
+
 int main() {
-    printDecember2025Calendar();
 
-    int selectedDate = chooseDate2025();
+    initEntryExitSystem();
 
-    printf("\nYOU SELECTED: DECEMBER %d, 2025\n", selectedDate);
+    int passType;
 
-    showOffer2025(selectedDate);
+    printf("======================================\n");
+    printf("       WONDERLAND AMUSEMENT PARK\n");
+    printf("======================================\n");
+    printf("Select Admission Type:\n");
+    printf("1) General Pass\n");
+    printf("2) VIP Pass\n");
+    printf("3) Exit\n");
+    printf("> ");
 
-    char userName[100];
-    int userAge;
-    float userHeight, userWeight;
+    scanf("%d", &passType);
 
-    printf("ENTER YOUR NAME: ");
-    scanf(" %[^\n]", userName);  // ✔ FIXED (NO &userName)
-
-    printf("ENTER YOUR AGE: ");
-    scanf("%d", &userAge);
-
-    printf("ENTER YOUR HEIGHT (IN FT.): ");
-    scanf("%f", &userHeight);
-
-    printf("ENTER YOUR WEIGHT (IN KG): ");
-    scanf("%f", &userWeight);
-
-    FILE *userDataForWriting, *userDataForReading;
-
-    int lastSerial = 0;
-
-    userDataForReading = fopen("userData.txt", "r");
-
-    if (userDataForReading != NULL) {
-        char line[1000];
-
-        while (fgets(line, sizeof(line), userDataForReading)) {
-            int serial;
-            if (sscanf(line, "serial: %d", &serial) == 1) {
-                lastSerial = serial;
-            }
-        }
-
-        fclose(userDataForReading);
+    if (passType == 1) {
+        enterAsLocal();     // <-- Name asked here ONLY ONCE
+    }
+    else if (passType == 2) {
+        enterAsVIP();       // <-- Name asked here ONLY ONCE
+    }
+    else {
+        printf("Exiting.\n");
+        return 0;
     }
 
-    int newSerial = lastSerial + 1;
+    // ===== CALENDAR =====
+    printDecember2025Calendar();
+    int selectedDate = chooseDate2025();
+    printf("Selected date: December %d, 2025\n", selectedDate);
 
-    userDataForWriting = fopen("userData.txt", "a");
-    fprintf(userDataForWriting, "serial: %d ", newSerial);
-    fprintf(userDataForWriting, "name: %s ", userName);
-    fprintf(userDataForWriting, "age: %d ", userAge);
-    fprintf(userDataForWriting, "height: %.2f ", userHeight);
-    fprintf(userDataForWriting, "weight: %.2f\n", userWeight);
-    fclose(userDataForWriting);
+    // ===== OFFERS =====
+    showOffer2025(selectedDate);
 
-    userDataForReading = fopen("userData.txt", "r");
-    char data[1000];
-    fscanf(userDataForReading, "%[^\n]", data);
-    printf("%s\n", data);
-    fclose(userDataForReading);
+    // ===== USER INFO (NO NAME HERE ANYMORE!) =====
+    int age;
+    float height;
 
-    printf("\nWELCOME %s, WHERE DO YOU WANT TO GO?\n", userName);
-    printf("1) FANTASY KINGDOM\n");
-    printf("2) WATER KINGDOM\n");
+    printf("Enter your Age: ");
+    scanf("%d", &age);
 
-    int parkSelection;
+    printf("Enter your Height (ft): ");
+    scanf("%f", &height);
 
-chooseOptionAgain:
+    // ===== PARK SELECTION =====
+    printf("\nChoose Your Park:\n");
+    printf("1) Fantasy Kingdom\n");
+    printf("2) Water Kingdom\n");
     printf("> ");
-    scanf("%d", &parkSelection);
 
-    switch (parkSelection) {
-        case 1:
-            fantasyKingdomWelcoming();
-            break;
+    int park;
+    scanf("%d", &park);
 
-        case 2:
-            waterKingdomWelcoming();
-            break;
-
-        default:
-            printf("INVALID OPTION! TRY AGAIN.\n");
-            goto chooseOptionAgain;
+    if (park == 1) {
+        fantasyKingdomWelcoming();
+    } else if (park == 2) {
+        waterKingdomWelcoming();
+    } else {
+        printf("Invalid option.\n");
     }
 
     return 0;
