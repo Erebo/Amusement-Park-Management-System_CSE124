@@ -23,3 +23,5 @@ serial: 22 name: e age: 2 height: 2.00 weight: 2.00
 serial: 23 name: e age: 2 height: 2.00 weight: 2.00
 serial: 24 name: e age: 2 height: 2.00 weight: 2.00
 serial: 25 name: e age: 2 height: 2.00 weight: 2.00
+serial: 26 name: Mahadi age: 33 height: 5.70 weight: 76.00
+serial: 27 name: Mahadi age: 45 height: 6.80 weight: 89.00
