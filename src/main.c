@@ -33,15 +33,12 @@ int main() {
 
     userDataForReading = fopen("userData.txt", "r");
 
-    if (userDataForReading != NULL)
-    {
+    if (userDataForReading != NULL) {
         char line[1000];
 
-        while (fgets(line, sizeof(line), userDataForReading))
-        {
+        while (fgets(line, sizeof(line), userDataForReading)) {
             int serial;
-            if (sscanf(line, "serial: %d", &serial) == 1)
-            {
+            if (sscanf(line, "serial: %d", &serial) == 1) {
                 lastSerial = serial; 
             }
         }
