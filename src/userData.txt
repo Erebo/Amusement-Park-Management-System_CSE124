@@ -23,4 +23,3 @@ serial: 22 name: e age: 2 height: 2.00 weight: 2.00
 serial: 23 name: e age: 2 height: 2.00 weight: 2.00
 serial: 24 name: e age: 2 height: 2.00 weight: 2.00
 serial: 25 name: e age: 2 height: 2.00 weight: 2.00
-serial: 26 name: w age: 2 height: 2.00 weight: 2.00
