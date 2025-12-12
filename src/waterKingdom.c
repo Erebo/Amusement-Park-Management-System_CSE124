@@ -396,8 +396,8 @@ void lazyRiverFunction() {
 }
 
 void userStartsRiding(int waterKingdomUserRideChoises[]) {
-    chooseAgainToStartRiding:
-        int rideNumber;
+    int rideNumber;
+chooseAgainToStartRiding:
         printf("Choose the ride number you want to go \n");
         printf("> ");
         scanf("%d", &rideNumber);
