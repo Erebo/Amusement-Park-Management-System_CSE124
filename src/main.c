@@ -11,8 +11,8 @@ void waterKingdomWelcoming(int age, float height);
 
 // entryexit.c
 void initEntryExitSystem();
-void enterAsLocal();   // General Pass
-void enterAsVIP();     // VIP Pass
+void enterAsLocal(char name[], int age, float height);
+void enterAsVIP(char name[], int age, float height);
 void entryExitSystem();
 
 // GLOBAL (declared in entryexit.c)
@@ -39,11 +39,24 @@ int main() {
 
     scanf("%d", &passType);
 
+    int age;
+    float height;
+    char name[50];
+
+    printf("Enter your name: ");
+    scanf(" %[^\n]", name);
+
+    printf("Enter your Age: ");
+    scanf("%d", &age);
+
+    printf("Enter your Height (ft): ");
+    scanf("%f", &height);
+
     if (passType == 1) {
-        enterAsLocal();     // name asked inside entryexit.c
+        enterAsLocal(name, age, height);     // name asked inside entryexit.c
     }
     else if (passType == 2) {
-        enterAsVIP();       // name asked inside entryexit.c
+        enterAsVIP(name, age, height);       // name asked inside entryexit.c
     }
     else {
         printf("Exiting.\n");
@@ -63,21 +76,6 @@ int main() {
     // =====================
     showOffer2025(selectedDate);
 
-    // =====================
-    //  USER PROFILE INPUT
-    // =====================
-    int age;
-    float height;
-
-    printf("\nEnter your Age: ");
-    scanf("%d", &age);
-
-    printf("Enter your Height (ft): ");
-    scanf("%f", &height);
-
-    // =====================
-    //  PARK SELECTION MENU (FIRST TIME)
-    // =====================
 startParkChoice:
 
     printf("\n================ PARK SELECTION ================\n");
