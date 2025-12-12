@@ -69,15 +69,6 @@ int main() {
 
     showOffer2025(selectedDate);
 
-    int age;
-    float height;
-
-    printf("\nEnter your Age: ");
-    scanf("%d", &age);
-
-    printf("Enter your Height (ft): ");
-    scanf("%f", &height);
-
 startParkChoice:
 
     printf("\n================ PARK SELECTION ================\n");
@@ -88,8 +79,8 @@ startParkChoice:
     printf("=================================================\n");
     printf("> ");
 
-        int park;
-        scanf("%d", &park);
+    int park;
+    scanf("%d", &park);
 
     if (park == 1) {
         fantasyKingdomWelcoming();
