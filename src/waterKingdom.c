@@ -18,12 +18,7 @@ void waterKingdomRideChoosingOption() {
     int waterKingdomUserRideChoise;
 
     chooseAgain:
-        int arrIdx = 0;
-        int waterKingdomUserRideChoise;
-
-chooseAgain:
-
-    if (arrIdx >= 0 && arrIdx < 15) {  // SAFE LIMIT CHECK
+    if (arrIdx >= 0 && arrIdx < 9) {
         printf("IF YOU ARE DONE WITH CHOOSING, TYPE 0\n");
         printf("> ");
         scanf("%d", &waterKingdomUserRideChoise);
@@ -51,28 +46,29 @@ chooseAgain:
 
                 for (int i = 0; i < arrIdx; i++) {
                     if (i + 1 == 1) {
-                        printf("Family Pool ");
+                        printf("| Family Pool |");
                     } else if (i + 1 == 2) {
-                        printf("Wave Pool ");
+                        printf("| Wave Pool |");
                     } else if (i + 1 == 3) {
-                        printf("Dancing Zone ");
+                        printf("| Dancing Zone |");
                     } else if (i + 1 == 4) {
-                        printf("Greer Slide ");
+                        printf("| Greer Slide |");
                     } else if (i + 1 == 5) {
-                        printf("Multi Slide ");
+                        printf("| Multi Slide |");
                     } else if (i + 1 == 6) {
-                        printf("Yellow Fly ");
+                        printf("| Yellow Fly |");
                     } else if (i + 1 == 7) {
-                        printf("Blue Tunnel ");
+                        printf("| Blue Tunnel |");
                     } else if (i + 1 == 8) {
-                        printf("Red Tunnel ");
+                        printf("| Red Tunnel |");
                     } else if (i + 1 == 9) {
-                        printf("Lazy River ");
+                        printf("| Lazy River |");
                     }
                 }
-        } else {
-            printf("You've choosen maximum number of rides, can't choose anymore\n");
-        }
+    } else {
+        printf("You've choosen maximum number of rides, can't choose anymore\n");
+        goto userDoneWithChoosing;
+    }
 }
 
 
@@ -80,11 +76,25 @@ chooseAgain:
 void waterKingdomWelcoming() {
 
     printf("\n");
-    printf("***************************************************************\n");
-    printf("*                                                             *\n");
-    printf("*                   WELCOME TO WATER KINGDOM                  *\n");
-    printf("*                                                             *\n");
-    printf("***************************************************************\n\n");
+    printf(" __        __   _                            \n");
+    printf(" \\ \\      / /__| | ___ ___  _ __ ___   ___  \n");
+    printf("  \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ \n");
+    printf("   \\ V  V /  __/ | (_| (_) | | | | | |  __/ \n");
+    printf("    \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \n");
+    printf("                                             \n");
+
+    printf("  _____    \n");
+    printf(" |_   _|__  \n");
+    printf("   | |/ _ \\ \n");
+    printf("   | | (_) |\n");
+    printf("   |_|\\___/ \n");
+    printf("            \n");
+    printf(" __        __    _              _  __  _             _            \n");
+    printf(" \\ \\      / /_ _| |_ ___ _ __  | |/ / (_)_ __   __ _  __| | ___  _ __ ___  \n");
+    printf("  \\ \\ /\\ / / _` | __/ _ \\ '__| | ' /  | | '_ \\ / _` |/ _` |/ _ \\| '_ ` _ \\ \n");
+    printf("   \\ V  V / (_| | ||  __/ |    | . \\  | | | | | (_| | (_| | (_) | | | | | |\n");
+    printf("    \\_/\\_/ \\__,_|\\__\\___|_|    |_|\\_\\ |_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\n");
+    printf("                                               |___/                       \n");
 
     waterKingdomRideChoosingOption();
 }
