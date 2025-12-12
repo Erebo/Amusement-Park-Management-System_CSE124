@@ -111,13 +111,10 @@ char* pop(Stack *s) {
 //------------------------------------------------------
 
 // Local Visitor
-void enterAsLocal(char name[], int age, float height, int childOnlyFlag, int childPermissionFlag)
-{
+void enterAsLocal(char name[], int age, float height){
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
     visitorHeight = height;
-    childOnly = childOnlyFlag;
-    childRidePermission = childPermissionFlag;
 
     enqueue(&localQueue, name);
 
@@ -125,17 +122,15 @@ void enterAsLocal(char name[], int age, float height, int childOnlyFlag, int chi
 }
 
 // VIP Visitor
-void enterAsVIP(char name[], int age, float height, int childOnlyFlag, int childPermissionFlag)
+void enterAsVIP(char name[], int age, float height)
 {
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
     visitorHeight = height;
-    childOnly = childOnlyFlag;
-    childRidePermission = childPermissionFlag;
 
     push(&vipStack, name);
 
-    printf("✔ %s added to VIP Stack (EXIT Gate Entry)\n", name);
+    printf("✔ %s added to VIP Stack (EXIT Gate Entry)\n\n", name);
 }
 
 //------------------------------------------------------
