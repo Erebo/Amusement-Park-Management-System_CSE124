@@ -14,12 +14,11 @@ void waterKingdomWelcoming(int age, float height);
 
 // entryexit.c
 void initEntryExitSystem();
-void enterAsLocal();   // General Pass
-void enterAsVIP();     // VIP Pass
+void enterAsLocal();  // General Pass
+void enterAsVIP();    // VIP Pass
 void entryExitSystem();
 
 int main() {
-
     initEntryExitSystem();  // prepare stack + queue for entry/exit
 
     int passType;
@@ -36,12 +35,10 @@ int main() {
     scanf("%d", &passType);
 
     if (passType == 1) {
-        enterAsLocal();     // name asked inside entryexit.c
-    }
-    else if (passType == 2) {
-        enterAsVIP();       // name asked inside entryexit.c
-    }
-    else {
+        enterAsLocal();  // name asked inside entryexit.c
+    } else if (passType == 2) {
+        enterAsVIP();  // name asked inside entryexit.c
+    } else {
         printf("Exiting.\n");
         return 0;
     }
@@ -89,18 +86,14 @@ startParkChoice:
 
     if (park == 1) {
         fantasyKingdomWelcoming();
-    }
-    else if (park == 2) {
-        waterKingdomWelcoming();
-    }
-    else if (park == 3) {
+    } else if (park == 2) {
+        waterKingdomWelcoming(age, height);
+    } else if (park == 3) {
         entryExitSystem();
-    }
-    else if (park == 4) {
+    } else if (park == 4) {
         printf("Goodbye!\n");
         return 0;
-    }
-    else {
+    } else {
         printf("Invalid option.\n");
         goto startParkChoice;
     }
@@ -129,28 +122,22 @@ postParkMenu:
     if (nextAction == 1) {
         fantasyKingdomWelcoming();
         goto postParkMenu;
-    }
-    else if (nextAction == 2) {
-        waterKingdomWelcoming();
+    } else if (nextAction == 2) {
+        waterKingdomWelcoming(age, height);
         goto postParkMenu;
-    }
-    else if (nextAction == 3) {
+    } else if (nextAction == 3) {
         entryExitSystem();
         goto postParkMenu;
-    }
-    else if (nextAction == 4) {
+    } else if (nextAction == 4) {
         printDecember2025Calendar();
         goto postParkMenu;
-    }
-    else if (nextAction == 5) {
+    } else if (nextAction == 5) {
         showOffer2025(selectedDate);
         goto postParkMenu;
-    }
-    else if (nextAction == 6) {
+    } else if (nextAction == 6) {
         printf("Goodbye!\n");
         return 0;
-    }
-    else {
+    } else {
         printf("Invalid option.\n");
         goto postParkMenu;
     }
