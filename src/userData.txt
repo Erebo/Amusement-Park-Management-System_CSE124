@@ -25,3 +25,6 @@ serial: 24 name: e age: 2 height: 2.00 weight: 2.00
 serial: 25 name: e age: 2 height: 2.00 weight: 2.00
 serial: 26 name: Mahadi age: 33 height: 5.70 weight: 76.00
 serial: 27 name: Mahadi age: 45 height: 6.80 weight: 89.00
+serial: 28 name: Jihad age: 33 height: 3.30 weight: 54.00
+serial: 29 name: Jihad age: 35 height: 44.00 weight: 4.00
+serial: 30 name: Rahman age: 22 height: 56.00 weight: 55.00
