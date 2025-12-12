@@ -12,68 +12,103 @@ void showOffer2025(int date);
 void fantasyKingdomWelcoming();
 void waterKingdomWelcoming();
 
-// entryexit.c
+// entryexit.c  (UPDATED FUNCTION SIGNATURES)
 void initEntryExitSystem();
-void enterAsLocal();   // General Pass
-void enterAsVIP();     // VIP Pass
+void enterAsLocal(char name[], int age, float height, int childOnly, int childRidePermission);
+void enterAsVIP(char name[], int age, float height, int childOnly, int childRidePermission);
 void entryExitSystem();
+
+// GLOBAL (declared in entryexit.c)
+extern char visitorNameGlobal[];
+extern int visitorAge;
+extern float visitorHeight;
+extern int childOnly;
+extern int childRidePermission;
 
 int main() {
 
-    initEntryExitSystem();  // prepare stack + queue for entry/exit
-
-    int passType;
+    initEntryExitSystem();  // prepare queue + stack
 
     printf("============================================================\n");
     printf("                WONDERLAND AMUSEMENT PARK\n");
     printf("============================================================\n");
-    printf("Select Admission Type:\n");
-    printf("1) General Pass\n");
-    printf("2) VIP Pass\n");
-    printf("3) Exit\n");
-    printf("> ");
 
-    scanf("%d", &passType);
-
-    if (passType == 1) {
-        enterAsLocal();     // name asked inside entryexit.c
-    }
-    else if (passType == 2) {
-        enterAsVIP();       // name asked inside entryexit.c
-    }
-    else {
-        printf("Exiting.\n");
-        return 0;
-    }
-
-    // =====================
-    //  CALENDAR SELECTION
-    // =====================
+    // ====================================================
+    // 1️⃣ CALENDAR FIRST
+    // ====================================================
     printDecember2025Calendar();
 
     int selectedDate = chooseDate2025();
     printf("\nSelected date: December %d, 2025\n", selectedDate);
 
-    // =====================
-    //  OFFERS BASED ON DAY
-    // =====================
+    // ====================================================
+    // 2️⃣ OFFER SECOND
+    // ====================================================
     showOffer2025(selectedDate);
 
-    // =====================
-    //  USER PROFILE INPUT
-    // =====================
+    // ====================================================
+    // 3️⃣ USER INFO (NAME, AGE, HEIGHT)
+    // ====================================================
+    char name[100];
     int age;
     float height;
 
-    printf("\nEnter your Age: ");
+    printf("\nEnter your Name: ");
+    scanf(" %[^\n]", name);
+
+    printf("Enter your Age: ");
     scanf("%d", &age);
 
     printf("Enter your Height (ft): ");
     scanf("%f", &height);
 
-    // =====================
-    //  PARK SELECTION MENU (FIRST TIME)
-    // =====================
+    visitorAge = age;
+    visitorHeight = height;
+
+    // ====================================================
+    // 4️⃣ AGE RULE SYSTEM (CHILD / PARENT)
+    // ====================================================
+    if (age < 10) {
+        childOnly = 1;
+        childRidePermission = 1;
+        printf("\nThis visitor is under 10. Children rides ONLY.\n");
+    } else {
+        childOnly = 0;
+        printf("\nAre you buying child ride tickets for your children? (1=Yes, 0=No): ");
+        scanf("%d", &childRidePermission);
+
+        if (childRidePermission == 1)
+            printf("Child rides permitted.\n");
+        else
+            printf("Child rides NOT permitted.\n");
+    }
+
+    // ====================================================
+    // 5️⃣ ADMISSION TYPE
+    // ====================================================
+    int passType;
+
+    printf("\nSelect Admission Type:\n");
+    printf("1) General Pass\n");
+    printf("2) VIP Pass\n");
+    printf("3) Exit\n");
+    printf("> ");
+    scanf("%d", &passType);
+
+    if (passType == 1) {
+        enterAsLocal(name, age, height, childOnly, childRidePermission);
+    }
+    else if (passType == 2) {
+        enterAsVIP(name, age, height, childOnly, childRidePermission);
+    }
+    else {
+        printf("Exiting program.\n");
+        return 0;
+    }
+
+    // ====================================================
+    // 6️⃣ FIRST PARK SELECTION
+    // ====================================================
 startParkChoice:
 
     printf("\n================ PARK SELECTION ================\n");
@@ -87,15 +122,9 @@ startParkChoice:
     int park;
     scanf("%d", &park);
 
-    if (park == 1) {
-        fantasyKingdomWelcoming();
-    }
-    else if (park == 2) {
-        waterKingdomWelcoming();
-    }
-    else if (park == 3) {
-        entryExitSystem();
-    }
+    if (park == 1) fantasyKingdomWelcoming();
+    else if (park == 2) waterKingdomWelcoming();
+    else if (park == 3) entryExitSystem();
     else if (park == 4) {
         printf("Goodbye!\n");
         return 0;
@@ -105,10 +134,9 @@ startParkChoice:
         goto startParkChoice;
     }
 
-    // =====================
-    //  POST-PARK MENU LOOP
-    // =====================
-
+    // ====================================================
+    // 7️⃣ POST-PARK MENU LOOP
+    // ====================================================
 postParkMenu:
 
     printf("\n==================================================================\n");
