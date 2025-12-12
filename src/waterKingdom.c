@@ -27,9 +27,14 @@ void waterKingdomRideChoosingOption(int age, float height) {
 
             case 0:
                 goto userDoneWithChoosing;
-
-            case 1: case 2: case 3: case 4:
-            case 5: case 6: case 7: case 8:
+            case 1: 
+            case 2: 
+            case 3: 
+            case 4:
+            case 5: 
+            case 6:
+            case 7: 
+            case 8:
             case 9:
                 for (int i = 0 ; i < 9 ; i++) {
                     if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
@@ -51,23 +56,23 @@ void waterKingdomRideChoosingOption(int age, float height) {
                 printf("Rides you choosed: ");
 
                 for (int i = 0; i < arrIdx; i++) {
-                    if (i + 1 == 1) {
+                    if (waterKingdomUserRideChoises[i] == 1) {
                         printf("| Family Pool |");
-                    } else if (i + 1 == 2) {
+                    } else if (waterKingdomUserRideChoises[i] == 2) {
                         printf("| Wave Pool |");
-                    } else if (i + 1 == 3) {
+                    } else if (waterKingdomUserRideChoises[i] == 3) {
                         printf("| Dancing Zone |");
-                    } else if (i + 1 == 4) {
+                    } else if (waterKingdomUserRideChoises[i] == 4) {
                         printf("| Greer Slide |");
-                    } else if (i + 1 == 5) {
+                    } else if (waterKingdomUserRideChoises[i] == 5) {
                         printf("| Multi Slide |");
-                    } else if (i + 1 == 6) {
+                    } else if (waterKingdomUserRideChoises[i] == 6) {
                         printf("| Yellow Fly |");
-                    } else if (i + 1 == 7) {
+                    } else if (waterKingdomUserRideChoises[i] == 7) {
                         printf("| Blue Tunnel |");
-                    } else if (i + 1 == 8) {
+                    } else if (waterKingdomUserRideChoises[i] == 8) {
                         printf("| Red Tunnel |");
-                    } else if (i + 1 == 9) {
+                    } else if (waterKingdomUserRideChoises[i] == 9) {
                         printf("| Lazy River |");
                     }
                 }
