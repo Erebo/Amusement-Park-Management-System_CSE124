@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure for linked list queue
+
 struct Car {
     int carNumber;
     struct Car* next;
@@ -10,7 +10,7 @@ struct Car {
 struct Car* front = NULL;
 struct Car* rear = NULL;
 
-// Enqueue: car enters parking
+
 void parkCar() {
     struct Car* newCar = (struct Car*)malloc(sizeof(struct Car));
 
@@ -34,7 +34,7 @@ void parkCar() {
     printf("Car %d parked successfully.\n", newCar->carNumber);
 }
 
-// Dequeue: car exits parking
+
 void removeCar() {
     if (front == NULL) {
         printf("Parking is empty. No car to remove.\n");
@@ -53,7 +53,7 @@ void removeCar() {
     free(temp);
 }
 
-// Display parked cars
+
 void showParking() {
     if (front == NULL) {
         printf("Parking is empty.\n");
@@ -69,7 +69,6 @@ void showParking() {
     }
 }
 
-// Main parking function (called from main.c)
 void carParking() {
     int choice;
 
