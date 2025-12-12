@@ -278,6 +278,45 @@ void yellowFlyFunction() {
     printf("\nyou are in!\n");
 }
 
+void printBlueTunnel() {
+    struct userLine* i = start;
+
+    while (i != NULL) {
+        i->userSerial == 5 ? printf("%d (You are here) \n", i->userSerial) : printf("%d\n", i->userSerial);
+        i = i->next;
+    }
+    printf("\n");
+}
+
+void blueTunnelFunction() {
+    insertInUserLine(1);
+    insertInUserLine(2);
+    insertInUserLine(3);
+    insertInUserLine(4);
+    insertInUserLine(5);
+    insertInUserLine(6);
+    insertInUserLine(7);
+
+    int totalBlueTunnelMember = 30;
+    printf("\nYellow Fly is currently full with %d people, sorry you have to wait\n\n", totalBlueTunnelMember);
+    printBlueTunnel();
+
+    for (int i = 0; i < 5; i++) {
+        Sleep(3000);
+        totalBlueTunnelMember--;
+        printf("One member left the Yellow Fly!\n");
+        printf("Current Yellow Fly member status: %d\n", totalBlueTunnelMember);
+        Sleep(1000);
+        deleteFromTheUserLine();
+        printf("User with serial number %d entered Yellow Fly\n", i + 1);
+        totalBlueTunnelMember++;
+        printf("Current Yellow Fly member status: %d\n", totalBlueTunnelMember);
+        Sleep(1000);
+        i < 4 ? printBlueTunnel() : printf("");
+    }
+    printf("\nyou are in!\n");
+}
+
 void userStartsRiding() {
     int rideNumber;
     printf("Choose the ride number you want to go \n");
@@ -296,7 +335,11 @@ void userStartsRiding() {
         multiSlideFunction();
     } else if (rideNumber == 6) {
         yellowFlyFunction();
+    } else if (rideNumber == 7)
+    {
+        blueTunnelFunction();
     }
+    
 }
 
 void waterKingdomRideChoosingOption(int age, float height) {
