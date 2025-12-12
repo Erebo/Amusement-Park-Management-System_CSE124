@@ -14,75 +14,32 @@ void waterKingdomRideChoosingOption() {
     printf("9) LAZY RIVER\n\n");
 
     int waterKingdomUserRideChoises[15];
+    int arrIdx = 0;     
+    int waterKingdomUserRideChoise;
 
     chooseAgain:
         int arrIdx = 0;
         int waterKingdomUserRideChoise;
 
-        if (arrIdx >= 0 && arrIdx <= 7){
-            printf("If you are done with choosing, type 0\n");
-            printf("> ");
-            scanf("%d", &waterKingdomUserRideChoise);
+chooseAgain:
 
-            switch (waterKingdomUserRideChoise){
-                case 0:
-                    goto userDoneWithChoosing;
-                    break;
-                case 1:
-                    waterKingdomUserRideChoises[arrIdx] = 1;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
+    if (arrIdx >= 0 && arrIdx < 15) {  // SAFE LIMIT CHECK
+        printf("IF YOU ARE DONE WITH CHOOSING, TYPE 0\n");
+        printf("> ");
+        scanf("%d", &waterKingdomUserRideChoise);
 
-                case 2:
-                    waterKingdomUserRideChoises[arrIdx] = 2;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
+        switch (waterKingdomUserRideChoise) {
 
-                case 3:
-                    waterKingdomUserRideChoises[arrIdx] = 3;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
+            case 0:
+                goto userDoneWithChoosing;
 
-                case 4:
-                    waterKingdomUserRideChoises[arrIdx] = 4;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
-
-                case 5:
-                    waterKingdomUserRideChoises[arrIdx] = 5;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
-
-                case 6:
-                    waterKingdomUserRideChoises[arrIdx] = 6;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
-
-                case 8:
-                    waterKingdomUserRideChoises[arrIdx] = 8;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
-
-                case 9:
-                    waterKingdomUserRideChoises[arrIdx] = 9;
-                    arrIdx++;
-                    printf("Option selected!\n");
-                    goto chooseAgain;
-                    break;
+            case 1: case 2: case 3: case 4:
+            case 5: case 6: case 7: case 8:
+            case 9:
+                waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
+                arrIdx++;
+                printf("OPTION SELECTED!\n");
+                goto chooseAgain;
 
                 default:
                     printf("Invalid option!\n");
@@ -122,19 +79,12 @@ void waterKingdomRideChoosingOption() {
 
 void waterKingdomWelcoming() {
 
-    printf("__        __   _    _                     _          _   _                               \n");
-    printf("\\ \\      / /__| | _| | ___  ___  _ __   | | ___  __| | | | __ ___   ____ _ _ __   ___   \n");
-    printf(" \\ \\ /\\ / / _ \\ |/ / |/ _ \\/ _ \\| '_ \\  | |/ _ \\/ _` | | |/ _` \\ \\ / / _` | '_ \\ / _ \\  \n");
-    printf("  \\ V  V /  __/   <| |  __/ (_) | | | | | |  __/ (_| | | | (_| |\\ V / (_| | | | |  __/  \n");
-    printf("   \\_/\\_/ \\___|_|\\_\\_|\\___|\\___/|_| |_| |_|\\___|\\__,_| |_|\\__,_| \\_/ \\__,_|_| |_|\\___|  \n");
-    printf("                                                                                           \n");
-
-    printf("__          __        _                              _                 \n");
-    printf("\\ \\        / /__  ___| |__   ___  _ __   __ _ _ __  | |_ ___  _ __ ___ \n");
-    printf(" \\ \\ /\\ / / _ \\/ __| '_ \\ / _ \\| '_ \\ / _` | '__| | __/ _ \\| '__/ _ \\ \n");
-    printf("  \\ V  V /  __/ (__| | | | (_) | | | | (_| | |    | || (_) | | |  __/ \n");
-    printf("   \\_/\\_/ \\___|\\___|_| |_|\\___/|_| |_|\\__,_|_|     \\__\\___/|_|  \\___| \n");
     printf("\n");
+    printf("***************************************************************\n");
+    printf("*                                                             *\n");
+    printf("*                   WELCOME TO WATER KINGDOM                  *\n");
+    printf("*                                                             *\n");
+    printf("***************************************************************\n\n");
 
     waterKingdomRideChoosingOption();
 }
