@@ -200,6 +200,45 @@ void greerSlideFunction() {
     printf("\nyou are in!\n");
 }
 
+void printMultiSlideLine() {
+    struct userLine* i = start;
+
+    while (i != NULL) {
+        i->userSerial == 5 ? printf("%d (You are here) \n", i->userSerial) : printf("%d\n", i->userSerial);
+        i = i->next;
+    }
+    printf("\n");
+}
+
+void multiSlideFunction() {
+    insertInUserLine(1);
+    insertInUserLine(2);
+    insertInUserLine(3);
+    insertInUserLine(4);
+    insertInUserLine(5);
+    insertInUserLine(6);
+    insertInUserLine(7);
+
+    int totalDancingZoneMember = 30;
+    printf("\nMulti Slide is currently full with %d people, sorry you have to wait\n\n", totalDancingZoneMember);
+    printMultiSlideLine();
+
+    for (int i = 0; i < 5; i++) {
+        Sleep(3000);
+        totalDancingZoneMember--;
+        printf("One member left the Multi Slide!\n");
+        printf("Current Multi Slide member status: %d\n", totalDancingZoneMember);
+        Sleep(1000);
+        deleteFromTheUserLine();
+        printf("User with serial number %d entered Multi Slide\n", i + 1);
+        totalDancingZoneMember++;
+        printf("Current Multi Slide member status: %d\n", totalDancingZoneMember);
+        Sleep(1000);
+        i < 4 ? printMultiSlideLine() : printf("");
+    }
+    printf("\nyou are in!\n");
+}
+
 void userStartsRiding() {
     int rideNumber;
     printf("Choose the ride number you want to go \n");
@@ -214,6 +253,8 @@ void userStartsRiding() {
         dancingZoneFunction();
     } if (rideNumber == 4) {
         greerSlideFunction();
+    } if (rideNumber == 5) {
+        multiSlideFunction();
     }
 }
 
