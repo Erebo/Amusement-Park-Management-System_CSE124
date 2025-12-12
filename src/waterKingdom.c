@@ -85,6 +85,47 @@ void familyPoolFunction() {
     printf("\nyou are in!\n");
 }
 
+void printWavePoolLine() {
+    struct userLine* i = start;
+
+    while (i != NULL) {
+        i->userSerial == 8 ? printf("%d (You are here) \n", i->userSerial) : printf("%d\n", i->userSerial);
+        i = i->next;
+    }
+    printf("\n");
+}
+
+void wavePoolFunction() {
+    insertInUserLine(1);
+    insertInUserLine(2);
+    insertInUserLine(3);
+    insertInUserLine(4);
+    insertInUserLine(5);
+    insertInUserLine(6);
+    insertInUserLine(7);
+    insertInUserLine(8);
+    insertInUserLine(9);
+
+    int totalWavePoolMember = 100;
+    printf("\nWave Pool is currently full with %d people, sorry you have to wait\n\n", totalWavePoolMember);
+    printWavePoolLine();
+
+    for (int i = 0; i < 8; i++) {
+        Sleep(3000);
+        totalWavePoolMember--;
+        printf("One member left the family pool!\n");
+        printf("Current Family Pool member status: %d\n", totalWavePoolMember);
+        Sleep(1000);
+        deleteFromTheUserLine();
+        printf("User with serial number %d entered the pool\n", i + 1);
+        totalWavePoolMember++;
+        printf("Current Family Pool member status: %d\n", totalWavePoolMember);
+        Sleep(1000);
+        i < 7 ? printWavePoolLine() : printf("");
+    }
+    printf("\nyou are in!\n");
+}
+
 void userStartsRiding() {
     int rideNumber;
     printf("Choose the ride number you want to go \n");
@@ -93,6 +134,8 @@ void userStartsRiding() {
 
     if (rideNumber == 1) {
         familyPoolFunction();
+    } if (rideNumber == 2) {
+        wavePoolFunction();
     }
 }
 
