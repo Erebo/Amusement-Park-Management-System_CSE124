@@ -9,7 +9,6 @@ void showOffer2025(int date);
 void fantasyKingdomWelcoming();
 void waterKingdomWelcoming(int age, float height);
 
-// entryexit.c
 void initEntryExitSystem();
 void enterAsLocal(char name[], int age, float height);
 void enterAsVIP(char name[], int age, float height);
@@ -17,7 +16,6 @@ void entryExitSystem();
 void restaurant();
 void carParking();
 
-// GLOBAL (declared in entryexit.c)
 extern char visitorNameGlobal[];
 extern int visitorAge;
 extern float visitorHeight;
@@ -26,7 +24,7 @@ extern int childRidePermission;
 
 int main() {
 
-    initEntryExitSystem();  // prepare stack + queue for entry/exit
+    initEntryExitSystem();
 
     int passType;
 
@@ -55,27 +53,21 @@ int main() {
     scanf("%f", &height);
 
     if (passType == 1) {
-        enterAsLocal(name, age, height);     // name asked inside entryexit.c
+        enterAsLocal(name, age, height);
     }
     else if (passType == 2) {
-        enterAsVIP(name, age, height);       // name asked inside entryexit.c
+        enterAsVIP(name, age, height);
     }
     else {
         printf("Exiting.\n");
         return 0;
     }
 
-    // =====================
-    //  CALENDAR SELECTION
-    // =====================
     printDecember2025Calendar();
 
     int selectedDate = chooseDate2025();
     printf("\nSelected date: December %d, 2025\n", selectedDate);
 
-    // =====================
-    //  OFFERS BASED ON DAY
-    // =====================
     showOffer2025(selectedDate);
 
 startParkChoice:
@@ -109,11 +101,6 @@ startParkChoice:
         printf("Invalid option.\n");
         goto startParkChoice;
     }
-
-    // =====================
-    //  POST-PARK MENU LOOP
-    // =====================
-
 postParkMenu:
 
     printf("\n==================================================================\n");
