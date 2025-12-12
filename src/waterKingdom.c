@@ -113,13 +113,13 @@ void wavePoolFunction() {
     for (int i = 0; i < 8; i++) {
         Sleep(3000);
         totalWavePoolMember--;
-        printf("One member left the family pool!\n");
-        printf("Current Family Pool member status: %d\n", totalWavePoolMember);
+        printf("One member left the Wave Pool!\n");
+        printf("Current Wave Pool member status: %d\n", totalWavePoolMember);
         Sleep(1000);
         deleteFromTheUserLine();
         printf("User with serial number %d entered the pool\n", i + 1);
         totalWavePoolMember++;
-        printf("Current Family Pool member status: %d\n", totalWavePoolMember);
+        printf("Current Wave Pool member status: %d\n", totalWavePoolMember);
         Sleep(1000);
         i < 7 ? printWavePoolLine() : printf("");
     }
@@ -150,13 +150,13 @@ void dancingZoneFunction() {
     for (int i = 0; i < 5; i++) {
         Sleep(3000);
         totalDancingZoneMember--;
-        printf("One member left the family pool!\n");
-        printf("Current Family Pool member status: %d\n", totalDancingZoneMember);
+        printf("One member left the Dancing Zone!\n");
+        printf("Current Dancing Zone member status: %d\n", totalDancingZoneMember);
         Sleep(1000);
         deleteFromTheUserLine();
         printf("User with serial number %d entered the pool\n", i + 1);
         totalDancingZoneMember++;
-        printf("Current Family Pool member status: %d\n", totalDancingZoneMember);
+        printf("Current Dancing Zone member status: %d\n", totalDancingZoneMember);
         Sleep(1000);
         i < 4 ? printDancingZoneLine() : printf("");
     }
@@ -181,19 +181,19 @@ void greerSlideFunction() {
     insertInUserLine(5);
 
     int totalDancingZoneMember = 30;
-    printf("\nDancing Zone is currently full with %d people, sorry you have to wait\n\n", totalDancingZoneMember);
+    printf("\nGreer Slide is currently full with %d people, sorry you have to wait\n\n", totalDancingZoneMember);
     printGreerSlideLine();
 
     for (int i = 0; i < 1; i++) {
         Sleep(3000);
         totalDancingZoneMember--;
-        printf("One member left the family pool!\n");
-        printf("Current Family Pool member status: %d\n", totalDancingZoneMember);
+        printf("One member left the Greer Slide!\n");
+        printf("Current Greer Slide member status: %d\n", totalDancingZoneMember);
         Sleep(1000);
         deleteFromTheUserLine();
         printf("User with serial number %d entered the pool\n", i + 1);
         totalDancingZoneMember++;
-        printf("Current Family Pool member status: %d\n", totalDancingZoneMember);
+        printf("Current Greer Slide member status: %d\n", totalDancingZoneMember);
         Sleep(1000);
         i < 0 ? printGreerSlideLine() : printf("");
     }
@@ -298,19 +298,19 @@ void blueTunnelFunction() {
     insertInUserLine(7);
 
     int totalBlueTunnelMember = 30;
-    printf("\nYellow Fly is currently full with %d people, sorry you have to wait\n\n", totalBlueTunnelMember);
+    printf("\nBlue Tunnel is currently full with %d people, sorry you have to wait\n\n", totalBlueTunnelMember);
     printBlueTunnel();
 
     for (int i = 0; i < 5; i++) {
         Sleep(3000);
         totalBlueTunnelMember--;
-        printf("One member left the Yellow Fly!\n");
-        printf("Current Yellow Fly member status: %d\n", totalBlueTunnelMember);
+        printf("One member left the Blue Tunnel!\n");
+        printf("Current Blue Tunnel member status: %d\n", totalBlueTunnelMember);
         Sleep(1000);
         deleteFromTheUserLine();
-        printf("User with serial number %d entered Yellow Fly\n", i + 1);
+        printf("User with serial number %d entered Blue Tunnel\n", i + 1);
         totalBlueTunnelMember++;
-        printf("Current Yellow Fly member status: %d\n", totalBlueTunnelMember);
+        printf("Current Blue Tunnel member status: %d\n", totalBlueTunnelMember);
         Sleep(1000);
         i < 4 ? printBlueTunnel() : printf("");
     }
@@ -337,19 +337,19 @@ void redTunnelFunction() {
     insertInUserLine(7);
 
     int totalRedTunnelMember = 30;
-    printf("\nYellow Fly is currently full with %d people, sorry you have to wait\n\n", totalRedTunnelMember);
+    printf("\nRed Tunnel is currently full with %d people, sorry you have to wait\n\n", totalRedTunnelMember);
     printRedTunnel();
 
     for (int i = 0; i < 5; i++) {
         Sleep(3000);
         totalRedTunnelMember--;
-        printf("One member left the Yellow Fly!\n");
-        printf("Current Yellow Fly member status: %d\n", totalRedTunnelMember);
+        printf("One member left the Red Tunnel!\n");
+        printf("Current Red Tunnel member status: %d\n", totalRedTunnelMember);
         Sleep(1000);
         deleteFromTheUserLine();
-        printf("User with serial number %d entered Yellow Fly\n", i + 1);
+        printf("User with serial number %d entered Red Tunnel\n", i + 1);
         totalRedTunnelMember++;
-        printf("Current Yellow Fly member status: %d\n", totalRedTunnelMember);
+        printf("Current Red Tunnel member status: %d\n", totalRedTunnelMember);
         Sleep(1000);
         i < 4 ? printRedTunnel() : printf("");
     }
@@ -413,14 +413,11 @@ void userStartsRiding() {
         multiSlideFunction();
     } else if (rideNumber == 6) {
         yellowFlyFunction();
-    } else if (rideNumber == 7)
-    {
+    } else if (rideNumber == 7) {
         blueTunnelFunction();
-    } else if (rideNumber == 8)
-    {
+    } else if (rideNumber == 8) {
         redTunnelFunction();
-    } else if (rideNumber == 9)
-    {
+    } else if (rideNumber == 9) {
         lazyRiverFunction();
     }
 }
