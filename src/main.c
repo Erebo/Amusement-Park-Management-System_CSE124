@@ -86,14 +86,17 @@ startParkChoice:
 
     if (park == 1) {
         fantasyKingdomWelcoming();
-    } else if (park == 2) {
+    }
+    else if (park == 2) {
         waterKingdomWelcoming(age, height);
-    } else if (park == 3) {
+    }
+    else if (park == 3) {
         entryExitSystem();
     } else if (park == 4) {
         printf("Goodbye!\n");
         return 0;
-    } else {
+    }
+    else {
         printf("Invalid option.\n");
         goto startParkChoice;
     }
