@@ -395,31 +395,152 @@ void lazyRiverFunction() {
     printf("\nyou are in!\n");
 }
 
-void userStartsRiding() {
-    int rideNumber;
-    printf("Choose the ride number you want to go \n");
-    printf("> ");
-    scanf("%d", &rideNumber);
+void userStartsRiding(int waterKingdomUserRideChoises[]) {
+    chooseAgainToStartRiding:
+        int rideNumber;
+        printf("Choose the ride number you want to go \n");
+        printf("> ");
+        scanf("%d", &rideNumber);
 
-    if (rideNumber == 1) {
-        familyPoolFunction();
-    } else if (rideNumber == 2) {
-        wavePoolFunction();
-    } else if (rideNumber == 3) {
-        dancingZoneFunction();
-    } else if (rideNumber == 4) {
-        greerSlideFunction();
-    } else if (rideNumber == 5) {
-        multiSlideFunction();
-    } else if (rideNumber == 6) {
-        yellowFlyFunction();
-    } else if (rideNumber == 7) {
-        blueTunnelFunction();
-    } else if (rideNumber == 8) {
-        redTunnelFunction();
-    } else if (rideNumber == 9) {
-        lazyRiverFunction();
-    }
+        if (rideNumber == 1) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 1) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                familyPoolFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 2) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 2) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                wavePoolFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 3) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 3) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                dancingZoneFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 4) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 4) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                greerSlideFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 5) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 5) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                multiSlideFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 6) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 6) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                yellowFlyFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 7) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 7) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                blueTunnelFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 8) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 8) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                redTunnelFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else if (rideNumber == 9) {
+            int count = 0;
+            for (int i = 0; i < 9; i++) {
+                if (waterKingdomUserRideChoises[i] == 9) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1) {
+                lazyRiverFunction();
+            } else {
+                printf("Your rider list doesn't contain this ride\n\n");
+                goto chooseAgainToStartRiding;
+            }
+        } else {
+            printf("Invalid option!\n");
+            goto chooseAgainToStartRiding;
+        }
 }
 
 void waterKingdomRideChoosingOption(int age, float height) {
@@ -439,100 +560,100 @@ void waterKingdomRideChoosingOption(int age, float height) {
     int arrIdx = 0;
     int waterKingdomUserRideChoise;
 
-chooseAgain:
-    if (arrIdx >= 0 && arrIdx < 9) {
-        printf("IF YOU ARE DONE WITH CHOOSING, TYPE 0\n");
-        printf("> ");
-        scanf("%d", &waterKingdomUserRideChoise);
-
-        switch (waterKingdomUserRideChoise) {
-            case 0:
-                goto userDoneWithChoosing;
-            case 2:
-                if (age >= 16) {
-                    for (int i = 0; i < 9; i++) {
-                        if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
-                            printf("YOU'VE ALREADY SELECTED THIS OPTION");
-                            goto chooseAgain;
+    chooseAgain:
+        if (arrIdx >= 0 && arrIdx < 9) {
+            printf("IF YOU ARE DONE WITH CHOOSING, TYPE 0\n");
+            printf("> ");
+            scanf("%d", &waterKingdomUserRideChoise);
+        
+            switch (waterKingdomUserRideChoise) {
+                case 0:
+                    goto userDoneWithChoosing;
+                case 2:
+                    if (age >= 16) {
+                        for (int i = 0; i < 9; i++) {
+                            if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
+                                printf("YOU'VE ALREADY SELECTED THIS OPTION");
+                                goto chooseAgain;
+                            }
                         }
-                    }
-                    waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
-                    arrIdx++;
-                    printf("OPTION SELECTED!\n");
-                    goto chooseAgain;
-                } else {
-                    printf("You are not eligible for this ride, minimum age required is 16\n");
-                    goto chooseAgain;
-                }
-            case 7:
-            case 8:
-                if (height >= 5) {
-                    for (int i = 0; i < 9; i++) {
-                        if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
-                            printf("YOU'VE ALREADY SELECTED THIS OPTION");
-                            goto chooseAgain;
-                        }
-                    }
-                    waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
-                    arrIdx++;
-                    printf("OPTION SELECTED!\n");
-                    goto chooseAgain;
-                } else {
-                    printf("You are not eligible for this ride, minimum height required is 5ft\n");
-                    goto chooseAgain;
-                }
-            case 1:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 9:
-                for (int i = 0; i < 9; i++) {
-                    if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
-                        printf("YOU'VE ALREADY SELECTED THIS OPTION\n");
+                        waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
+                        arrIdx++;
+                        printf("OPTION SELECTED!\n");
+                        goto chooseAgain;
+                    } else {
+                        printf("You are not eligible for this ride, minimum age required is 16\n");
                         goto chooseAgain;
                     }
-                }
-                waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
-                arrIdx++;
-                printf("OPTION SELECTED!\n");
-                goto chooseAgain;
-
-            default:
-                printf("INVALID OPTION\n");
-                goto chooseAgain;
-        }
-
-    userDoneWithChoosing:
-        printf("Rides you choosed: ");
-        for (int i = 0; i < arrIdx; i++) {
-            if (waterKingdomUserRideChoises[i] == 1) {
-                printf("| 1) Family Pool |");
-            } else if (waterKingdomUserRideChoises[i] == 2) {
-                printf("| 2) Wave Pool |");
-            } else if (waterKingdomUserRideChoises[i] == 3) {
-                printf("| 3) Dancing Zone |");
-            } else if (waterKingdomUserRideChoises[i] == 4) {
-                printf("| 4) Greer Slide |");
-            } else if (waterKingdomUserRideChoises[i] == 5) {
-                printf("| 5) Multi Slide |");
-            } else if (waterKingdomUserRideChoises[i] == 6) {
-                printf("| 6) Yellow Fly |");
-            } else if (waterKingdomUserRideChoises[i] == 7) {
-                printf("| 7) Blue Tunnel |");
-            } else if (waterKingdomUserRideChoises[i] == 8) {
-                printf("| 8) Red Tunnel |");
-            } else if (waterKingdomUserRideChoises[i] == 9) {
-                printf("| 9) Lazy River |");
+                case 7:
+                case 8:
+                    if (height >= 5) {
+                        for (int i = 0; i < 9; i++) {
+                            if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
+                                printf("YOU'VE ALREADY SELECTED THIS OPTION");
+                                goto chooseAgain;
+                            }
+                        }
+                        waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
+                        arrIdx++;
+                        printf("OPTION SELECTED!\n");
+                        goto chooseAgain;
+                    } else {
+                        printf("You are not eligible for this ride, minimum height required is 5ft\n");
+                        goto chooseAgain;
+                    }
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 9:
+                    for (int i = 0; i < 9; i++) {
+                        if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
+                            printf("YOU'VE ALREADY SELECTED THIS OPTION\n");
+                            goto chooseAgain;
+                        }
+                    }
+                    waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
+                    arrIdx++;
+                    printf("OPTION SELECTED!\n");
+                    goto chooseAgain;
+                
+                default:
+                    printf("INVALID OPTION\n");
+                    goto chooseAgain;
             }
-        }
-        printf("\n\n");
-    } else {
-        printf("You've choosen maximum number of rides, can't choose anymore\n");
-        goto userDoneWithChoosing;
-    }
 
-    userStartsRiding();
+            userDoneWithChoosing:
+                printf("Rides you choosed: ");
+                for (int i = 0; i < arrIdx; i++) {
+                    if (waterKingdomUserRideChoises[i] == 1) {
+                        printf("| 1) Family Pool |");
+                    } else if (waterKingdomUserRideChoises[i] == 2) {
+                        printf("| 2) Wave Pool |");
+                    } else if (waterKingdomUserRideChoises[i] == 3) {
+                        printf("| 3) Dancing Zone |");
+                    } else if (waterKingdomUserRideChoises[i] == 4) {
+                        printf("| 4) Greer Slide |");
+                    } else if (waterKingdomUserRideChoises[i] == 5) {
+                        printf("| 5) Multi Slide |");
+                    } else if (waterKingdomUserRideChoises[i] == 6) {
+                        printf("| 6) Yellow Fly |");
+                    } else if (waterKingdomUserRideChoises[i] == 7) {
+                        printf("| 7) Blue Tunnel |");
+                    } else if (waterKingdomUserRideChoises[i] == 8) {
+                        printf("| 8) Red Tunnel |");
+                    } else if (waterKingdomUserRideChoises[i] == 9) {
+                        printf("| 9) Lazy River |");
+                    }
+                }
+                printf("\n\n");
+        } else {
+            printf("You've choosen maximum number of rides, can't choose anymore\n");
+            goto userDoneWithChoosing;
+        }
+
+    userStartsRiding(waterKingdomUserRideChoises);
 }
 
 void waterKingdomWelcoming(int age, float height) {

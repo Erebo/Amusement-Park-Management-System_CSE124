@@ -106,11 +106,6 @@ char* pop(Stack *s) {
     return s->names[s->top--];
 }
 
-//------------------------------------------------------
-// PARAMETER-BASED VISITOR ENTRY (UPDATED DESIGN)
-//------------------------------------------------------
-
-// Local Visitor
 void enterAsLocal(char name[], int age, float height){
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
@@ -121,7 +116,6 @@ void enterAsLocal(char name[], int age, float height){
     printf("%s added to Local Queue (ENTRY Gate)\n", name);
 }
 
-// VIP Visitor
 void enterAsVIP(char name[], int age, float height)
 {
     strcpy(visitorNameGlobal, name);
@@ -133,9 +127,6 @@ void enterAsVIP(char name[], int age, float height)
     printf("✔ %s added to VIP Stack (EXIT Gate Entry)\n\n", name);
 }
 
-//------------------------------------------------------
-// PROCESS VISITORS
-//------------------------------------------------------
 void processLocalEntry() {
     char *name = dequeue(&localQueue);
 
@@ -156,9 +147,6 @@ void processVIPEntry() {
     printf("➡ VIP Visitor Entered: %s\n", name);
 }
 
-//------------------------------------------------------
-// ENTRY / EXIT MENU
-//------------------------------------------------------
 void entryExitSystem() {
     int choice;
 
@@ -182,9 +170,6 @@ void entryExitSystem() {
     }
 }
 
-//------------------------------------------------------
-// INITIALIZER — CALLED ONCE IN main.c
-//------------------------------------------------------
 void initEntryExitSystem() {
     initQueue(&localQueue);
     initStack(&vipStack);
