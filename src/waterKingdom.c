@@ -163,6 +163,43 @@ void dancingZoneFunction() {
     printf("\nyou are in!\n");
 }
 
+void printGreerSlideLine() {
+    struct userLine* i = start;
+
+    while (i != NULL) {
+        i->userSerial == 1 ? printf("%d (You are here) \n", i->userSerial) : printf("%d\n", i->userSerial);
+        i = i->next;
+    }
+    printf("\n");
+}
+
+void greerSlideFunction() {
+    insertInUserLine(1);
+    insertInUserLine(2);
+    insertInUserLine(3);
+    insertInUserLine(4);
+    insertInUserLine(5);
+
+    int totalDancingZoneMember = 30;
+    printf("\nDancing Zone is currently full with %d people, sorry you have to wait\n\n", totalDancingZoneMember);
+    printGreerSlideLine();
+
+    for (int i = 0; i < 1; i++) {
+        Sleep(3000);
+        totalDancingZoneMember--;
+        printf("One member left the family pool!\n");
+        printf("Current Family Pool member status: %d\n", totalDancingZoneMember);
+        Sleep(1000);
+        deleteFromTheUserLine();
+        printf("User with serial number %d entered the pool\n", i + 1);
+        totalDancingZoneMember++;
+        printf("Current Family Pool member status: %d\n", totalDancingZoneMember);
+        Sleep(1000);
+        i < 0 ? printGreerSlideLine() : printf("");
+    }
+    printf("\nyou are in!\n");
+}
+
 void userStartsRiding() {
     int rideNumber;
     printf("Choose the ride number you want to go \n");
@@ -175,6 +212,8 @@ void userStartsRiding() {
         wavePoolFunction();
     } if (rideNumber == 3) {
         dancingZoneFunction();
+    } if (rideNumber == 4) {
+        greerSlideFunction();
     }
 }
 
