@@ -143,7 +143,6 @@ void dancingZoneFunction() {
     insertInUserLine(4);
     insertInUserLine(5);
 
-
     int totalDancingZoneMember = 50;
     printf("\nDancing Zone is currently full with %d people, sorry you have to wait\n\n", totalDancingZoneMember);
     printDancingZoneLine();
