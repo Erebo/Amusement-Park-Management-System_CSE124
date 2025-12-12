@@ -4,13 +4,13 @@ void waterKingdomRideChoosingOption(int age, float height) {
     printf("CHOOSE YOUR RIDES:\n\n");
 
     printf("1) FAMILY POOL\n");
-    printf("2) WAVE POOL\n");
+    printf("2) WAVE POOL (MINIMUM AGE: 16)\n");
     printf("3) DANCING ZONE\n");
     printf("4) GREER SLIDE\n");
     printf("5) MULTI SLIDE\n");
     printf("6) YELLOW FLY\n");
-    printf("7) BLUE TUNNEL\n");
-    printf("8) RED TUNNEL\n");
+    printf("7) BLUE TUNNEL (MINIMUM HEIGHT: 5FT)\n");
+    printf("8) RED TUNNEL (MINIMUM HEIGHT: 5FT)\n");
     printf("9) LAZY RIVER\n\n");
 
     int waterKingdomUserRideChoises[15];
@@ -27,18 +27,48 @@ void waterKingdomRideChoosingOption(int age, float height) {
 
             case 0:
                 goto userDoneWithChoosing;
-            case 1: 
-            case 2: 
+            case 2:
+                if (age >= 16) {
+                    for (int i = 0; i < 9; i++) {
+                        if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
+                            printf("YOU'VE ALREADY SELECTED THIS OPTION");
+                            goto chooseAgain;
+                        }
+                    }
+                    waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
+                    arrIdx++;
+                    printf("OPTION SELECTED!\n");
+                    goto chooseAgain;
+                } else {
+                    printf("You are not eligible for this ride, minimum age required is 16\n");
+                    goto chooseAgain;
+                }
+            case 7:
+            case 8:
+                if (height >= 5) {
+                    for (int i = 0; i < 9; i++) {
+                        if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
+                            printf("YOU'VE ALREADY SELECTED THIS OPTION");
+                            goto chooseAgain;
+                        }
+                    }
+                    waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
+                    arrIdx++;
+                    printf("OPTION SELECTED!\n");
+                    goto chooseAgain;
+                } else {
+                    printf("You are not eligible for this ride, minimum height required is 5ft\n");
+                    goto chooseAgain;
+                }
+            case 1:
             case 3: 
             case 4:
             case 5: 
             case 6:
-            case 7: 
-            case 8:
             case 9:
                 for (int i = 0 ; i < 9 ; i++) {
                     if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
-                        printf("You've already selected this option");
+                        printf("YOU'VE ALREADY SELECTED THIS OPTION");
                         goto chooseAgain;
                     }
                 }
@@ -47,10 +77,10 @@ void waterKingdomRideChoosingOption(int age, float height) {
                 printf("OPTION SELECTED!\n");
                 goto chooseAgain;
 
-                default:
-                    printf("Invalid option!\n");
+            default:
+                    printf("INVALID OPTION\n");
                     goto chooseAgain;
-            }
+        }
         
             userDoneWithChoosing:
                 printf("Rides you choosed: ");
