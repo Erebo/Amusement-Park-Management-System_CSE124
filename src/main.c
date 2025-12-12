@@ -11,9 +11,11 @@ void waterKingdomWelcoming(int age, float height);
 
 // entryexit.c
 void initEntryExitSystem();
-void enterAsLocal();   // General Pass
-void enterAsVIP();     // VIP Pass
+void enterAsLocal(char name[], int age, float height);
+void enterAsVIP(char name[], int age, float height);
 void entryExitSystem();
+void restaurant();
+void carParking();
 
 // GLOBAL (declared in entryexit.c)
 extern char visitorNameGlobal[];
@@ -39,11 +41,24 @@ int main() {
 
     scanf("%d", &passType);
 
+    int age;
+    float height;
+    char name[50];
+
+    printf("Enter your name: ");
+    scanf(" %[^\n]", name);
+
+    printf("Enter your Age: ");
+    scanf("%d", &age);
+
+    printf("Enter your Height (ft): ");
+    scanf("%f", &height);
+
     if (passType == 1) {
-        enterAsLocal();     // name asked inside entryexit.c
+        enterAsLocal(name, age, height);     // name asked inside entryexit.c
     }
     else if (passType == 2) {
-        enterAsVIP();       // name asked inside entryexit.c
+        enterAsVIP(name, age, height);       // name asked inside entryexit.c
     }
     else {
         printf("Exiting.\n");
@@ -63,21 +78,6 @@ int main() {
     // =====================
     showOffer2025(selectedDate);
 
-    // =====================
-    //  USER PROFILE INPUT
-    // =====================
-    int age;
-    float height;
-
-    printf("\nEnter your Age: ");
-    scanf("%d", &age);
-
-    printf("Enter your Height (ft): ");
-    scanf("%f", &height);
-
-    // =====================
-    //  PARK SELECTION MENU (FIRST TIME)
-    // =====================
 startParkChoice:
 
     printf("\n================ PARK SELECTION ================\n");
@@ -88,8 +88,8 @@ startParkChoice:
     printf("=================================================\n");
     printf("> ");
 
-        int park;
-        scanf("%d", &park);
+    int park;
+    scanf("%d", &park);
 
     if (park == 1) {
         fantasyKingdomWelcoming();
@@ -124,7 +124,9 @@ postParkMenu:
     printf("3) Entry/Exit System\n");
     printf("4) View Calendar\n");
     printf("5) View Offers\n");
-    printf("6) Exit Program\n");
+    printf("6) Go to restaurant\n");
+    printf("7) Park your vehicle\n");
+    printf("8) Exist program\n");
     printf("==================================================================\n");
     printf("> ");
 
@@ -147,9 +149,16 @@ postParkMenu:
             showOffer2025(selectedDate);
             goto postParkMenu;
         } else if (nextAction == 6) {
+            restaurant();
+            goto postParkMenu;
+        } else if (nextAction == 7) {
+            carParking();
+        } else if (nextAction == 8) {
             printf("Goodbye!\n");
             return 0;
-        } else {
+        }
+        
+        else {
             printf("Invalid option.\n");
             goto postParkMenu;
         }
