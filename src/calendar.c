@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Display Welcome Screen + Calendar
 void printDecember2025Calendar() {
     printf("  Please select your suitable date below:\n");
     printf("===========================================\n\n");
@@ -9,18 +8,15 @@ void printDecember2025Calendar() {
     printf("-------------------------------------------\n");
     printf("Su  Mo  Tu  We  Th  Fr  Sa\n");
 
-    int startDay = 1;  // Monday
+    int startDay = 1; 
     int day;
 
-    // Print spaces before day 1
     for (int i = 0; i < startDay; i++)
         printf("    ");
 
-    // Print all 31 days of December 2025
     for (day = 1; day <= 31; day++) {
         printf("%2d  ", day);
 
-        // New line after Saturday
         if ((day + startDay) % 7 == 0)
             printf("\n");
     }
@@ -28,14 +24,13 @@ void printDecember2025Calendar() {
     printf("\n-------------------------------------------\n");
 }
 
-// Ask user for a valid date
 int chooseDate2025() {
     int date;
 
     while (1) {
         printf("Select a date (1-31): ");
         if (scanf("%d", &date) != 1) {
-            while (getchar() != '\n'); // clear buffer
+            while (getchar() != '\n'); 
             printf("Invalid input! Please enter a number.\n");
             continue;
         }
