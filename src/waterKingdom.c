@@ -356,6 +356,45 @@ void redTunnelFunction() {
     printf("\nyou are in!\n");
 }
 
+void printLazyRiverLine() {
+    struct userLine* i = start;
+
+    while (i != NULL) {
+        i->userSerial == 5 ? printf("%d (You are here) \n", i->userSerial) : printf("%d\n", i->userSerial);
+        i = i->next;
+    }
+    printf("\n");
+}
+
+void lazyRiverFunction() {
+    insertInUserLine(1);
+    insertInUserLine(2);
+    insertInUserLine(3);
+    insertInUserLine(4);
+    insertInUserLine(5);
+    insertInUserLine(6);
+    insertInUserLine(7);
+
+    int totalLazyRiverMember = 30;
+    printf("\nLazy River is currently full with %d people, sorry you have to wait\n\n", totalLazyRiverMember);
+    printLazyRiverLine();
+
+    for (int i = 0; i < 5; i++) {
+        Sleep(3000);
+        totalLazyRiverMember--;
+        printf("One member left the Lazy River!\n");
+        printf("Current Lazy River member status: %d\n", totalLazyRiverMember);
+        Sleep(1000);
+        deleteFromTheUserLine();
+        printf("User with serial number %d entered Lazy River\n", i + 1);
+        totalLazyRiverMember++;
+        printf("Current Lazy River member status: %d\n", totalLazyRiverMember);
+        Sleep(1000);
+        i < 4 ? printLazyRiverLine() : printf("");
+    }
+    printf("\nyou are in!\n");
+}
+
 void userStartsRiding() {
     int rideNumber;
     printf("Choose the ride number you want to go \n");
@@ -380,9 +419,10 @@ void userStartsRiding() {
     } else if (rideNumber == 8)
     {
         redTunnelFunction();
+    } else if (rideNumber == 9)
+    {
+        lazyRiverFunction();
     }
-    
-    
 }
 
 void waterKingdomRideChoosingOption(int age, float height) {
