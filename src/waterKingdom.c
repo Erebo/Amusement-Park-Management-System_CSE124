@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void waterKingdomRideChoosingOption() {
+void waterKingdomRideChoosingOption(int age, float height) {
     printf("CHOOSE YOUR RIDES:\n\n");
 
     printf("1) FAMILY POOL\n");
@@ -31,6 +31,12 @@ void waterKingdomRideChoosingOption() {
             case 1: case 2: case 3: case 4:
             case 5: case 6: case 7: case 8:
             case 9:
+                for (int i = 0 ; i < 9 ; i++) {
+                    if (waterKingdomUserRideChoises[i] == waterKingdomUserRideChoise) {
+                        printf("You've already selected this option");
+                        goto chooseAgain;
+                    }
+                }
                 waterKingdomUserRideChoises[arrIdx] = waterKingdomUserRideChoise;
                 arrIdx++;
                 printf("OPTION SELECTED!\n");
@@ -71,10 +77,7 @@ void waterKingdomRideChoosingOption() {
     }
 }
 
-
-
-void waterKingdomWelcoming() {
-
+void waterKingdomWelcoming(int age, float height) {
     printf("\n");
     printf(" __        __   _                            \n");
     printf(" \\ \\      / /__| | ___ ___  _ __ ___   ___  \n");
@@ -96,5 +99,5 @@ void waterKingdomWelcoming() {
     printf("    \\_/\\_/ \\__,_|\\__\\___|_|    |_|\\_\\ |_|_| |_|\\__, |\\__,_|\\___/|_| |_| |_|\n");
     printf("                                               |___/                       \n");
 
-    waterKingdomRideChoosingOption();
+    waterKingdomRideChoosingOption(age, height);
 }
