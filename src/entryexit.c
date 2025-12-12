@@ -106,41 +106,27 @@ char* pop(Stack *s) {
     return s->names[s->top--];
 }
 
-//------------------------------------------------------
-// PARAMETER-BASED VISITOR ENTRY (UPDATED DESIGN)
-//------------------------------------------------------
-
-// Local Visitor
-void enterAsLocal(char name[], int age, float height, int childOnlyFlag, int childPermissionFlag)
-{
+void enterAsLocal(char name[], int age, float height){
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
     visitorHeight = height;
-    childOnly = childOnlyFlag;
-    childRidePermission = childPermissionFlag;
 
     enqueue(&localQueue, name);
 
     printf("%s added to Local Queue (ENTRY Gate)\n", name);
 }
 
-// VIP Visitor
-void enterAsVIP(char name[], int age, float height, int childOnlyFlag, int childPermissionFlag)
+void enterAsVIP(char name[], int age, float height)
 {
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
     visitorHeight = height;
-    childOnly = childOnlyFlag;
-    childRidePermission = childPermissionFlag;
 
     push(&vipStack, name);
 
-    printf("✔ %s added to VIP Stack (EXIT Gate Entry)\n", name);
+    printf("✔ %s added to VIP Stack (EXIT Gate Entry)\n\n", name);
 }
 
-//------------------------------------------------------
-// PROCESS VISITORS
-//------------------------------------------------------
 void processLocalEntry() {
     char *name = dequeue(&localQueue);
 
@@ -161,9 +147,6 @@ void processVIPEntry() {
     printf("➡ VIP Visitor Entered: %s\n", name);
 }
 
-//------------------------------------------------------
-// ENTRY / EXIT MENU
-//------------------------------------------------------
 void entryExitSystem() {
     int choice;
 
@@ -187,9 +170,6 @@ void entryExitSystem() {
     }
 }
 
-//------------------------------------------------------
-// INITIALIZER — CALLED ONCE IN main.c
-//------------------------------------------------------
 void initEntryExitSystem() {
     initQueue(&localQueue);
     initStack(&vipStack);

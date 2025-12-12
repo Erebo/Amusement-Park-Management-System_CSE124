@@ -7,11 +7,6 @@
 #define MAX_HISTORY 100
 #define CHILD_RIDE_FARE 40
 
-/* ============================================================
-   DATA STRUCTURES
-   Queue (linked list), Stack, Ride, Category Tree
-   ============================================================ */
-
 typedef struct QueueNode {
     char visitorName[MAX_NAME_LEN];
     struct QueueNode *next;
@@ -41,10 +36,6 @@ typedef struct Category {
     struct Category *left;
     struct Category *right;
 } Category;
-
-/* ============================================================
-   FIXED — Fantasy Kingdom Queue/Stack functions (NO conflicts)
-   ============================================================ */
 
 void FK_initQueue(Queue *q) {
     q->head = q->tail = NULL;
@@ -128,10 +119,6 @@ static int completedHeritage[50] = {0};
 extern int visitorAge;
 extern float visitorHeight;
 extern int childRidePermission;
-
-/* ============================================================
-   Read last visitor name from userData.txt
-   ============================================================ */
 
 int getLastVisitorName(char *outName, int size) {
     FILE *f = fopen("userData.txt", "r");
