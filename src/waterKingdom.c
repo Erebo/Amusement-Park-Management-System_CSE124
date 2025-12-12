@@ -239,6 +239,45 @@ void multiSlideFunction() {
     printf("\nyou are in!\n");
 }
 
+void printYellowFly() {
+    struct userLine* i = start;
+
+    while (i != NULL) {
+        i->userSerial == 5 ? printf("%d (You are here) \n", i->userSerial) : printf("%d\n", i->userSerial);
+        i = i->next;
+    }
+    printf("\n");
+}
+
+void yellowFlyFunction() {
+    insertInUserLine(1);
+    insertInUserLine(2);
+    insertInUserLine(3);
+    insertInUserLine(4);
+    insertInUserLine(5);
+    insertInUserLine(6);
+    insertInUserLine(7);
+
+    int totalYellowFlyMember = 30;
+    printf("\nYellow Fly is currently full with %d people, sorry you have to wait\n\n", totalYellowFlyMember);
+    printYellowFly();
+
+    for (int i = 0; i < 5; i++) {
+        Sleep(3000);
+        totalYellowFlyMember--;
+        printf("One member left the Yellow Fly!\n");
+        printf("Current Yellow Fly member status: %d\n", totalYellowFlyMember);
+        Sleep(1000);
+        deleteFromTheUserLine();
+        printf("User with serial number %d entered Yellow Fly\n", i + 1);
+        totalYellowFlyMember++;
+        printf("Current Yellow Fly member status: %d\n", totalYellowFlyMember);
+        Sleep(1000);
+        i < 4 ? printYellowFly() : printf("");
+    }
+    printf("\nyou are in!\n");
+}
+
 void userStartsRiding() {
     int rideNumber;
     printf("Choose the ride number you want to go \n");
@@ -247,14 +286,16 @@ void userStartsRiding() {
 
     if (rideNumber == 1) {
         familyPoolFunction();
-    } if (rideNumber == 2) {
+    } else if (rideNumber == 2) {
         wavePoolFunction();
-    } if (rideNumber == 3) {
+    } else if (rideNumber == 3) {
         dancingZoneFunction();
-    } if (rideNumber == 4) {
+    } else if (rideNumber == 4) {
         greerSlideFunction();
-    } if (rideNumber == 5) {
+    } else if (rideNumber == 5) {
         multiSlideFunction();
+    } else if (rideNumber == 6) {
+        yellowFlyFunction();
     }
 }
 
