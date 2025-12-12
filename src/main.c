@@ -9,13 +9,12 @@ void showOffer2025(int date);
 void fantasyKingdomWelcoming();
 void waterKingdomWelcoming(int age, float height);
 
-// entryexit.c
+
 void initEntryExitSystem();
-void enterAsLocal();   // General Pass
-void enterAsVIP();     // VIP Pass
+void enterAsLocal(char name[], int age, float height);
+void enterAsVIP(char name[], int age, float height);     
 void entryExitSystem();
 
-// GLOBAL (declared in entryexit.c)
 extern char visitorNameGlobal[];
 extern int visitorAge;
 extern float visitorHeight;
@@ -24,7 +23,7 @@ extern int childRidePermission;
 
 int main() {
 
-    initEntryExitSystem();  // prepare stack + queue for entry/exit
+    initEntryExitSystem();  
 
     int passType;
 
@@ -39,33 +38,37 @@ int main() {
 
     scanf("%d", &passType);
 
+    int age;
+    float height;
+    char name[50];
+
+    printf("Enter your name: ");
+    scanf(" %[^\n]", name);
+
+    printf("Enter your Age: ");
+    scanf("%d", &age);
+
+    printf("Enter your Height (ft): ");
+    scanf("%f", &height);
+
     if (passType == 1) {
-        enterAsLocal();     // name asked inside entryexit.c
+        enterAsLocal(name, age, height);     
     }
     else if (passType == 2) {
-        enterAsVIP();       // name asked inside entryexit.c
+        enterAsVIP(name,age, height);       
     }
     else {
         printf("Exiting.\n");
         return 0;
     }
 
-    // =====================
-    //  CALENDAR SELECTION
-    // =====================
     printDecember2025Calendar();
 
     int selectedDate = chooseDate2025();
     printf("\nSelected date: December %d, 2025\n", selectedDate);
 
-    // =====================
-    //  OFFERS BASED ON DAY
-    // =====================
     showOffer2025(selectedDate);
 
-    // =====================
-    //  USER PROFILE INPUT
-    // =====================
     int age;
     float height;
 
@@ -75,9 +78,6 @@ int main() {
     printf("Enter your Height (ft): ");
     scanf("%f", &height);
 
-    // =====================
-    //  PARK SELECTION MENU (FIRST TIME)
-    // =====================
 startParkChoice:
 
     printf("\n================ PARK SELECTION ================\n");
