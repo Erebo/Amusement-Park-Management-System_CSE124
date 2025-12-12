@@ -15,6 +15,7 @@ void enterAsLocal(char name[], int age, float height);
 void enterAsVIP(char name[], int age, float height);
 void entryExitSystem();
 void restaurant();
+void carParking();
 
 // GLOBAL (declared in entryexit.c)
 extern char visitorNameGlobal[];
@@ -124,7 +125,8 @@ postParkMenu:
     printf("4) View Calendar\n");
     printf("5) View Offers\n");
     printf("6) Go to restaurant\n");
-    printf("7) Exist program\n");
+    printf("7) Park your vehicle\n");
+    printf("8) Exist program\n");
     printf("==================================================================\n");
     printf("> ");
 
@@ -150,9 +152,13 @@ postParkMenu:
             restaurant();
             goto postParkMenu;
         } else if (nextAction == 7) {
+            carParking();
+        } else if (nextAction == 8) {
             printf("Goodbye!\n");
             return 0;
-        } else {
+        }
+        
+        else {
             printf("Invalid option.\n");
             goto postParkMenu;
         }
