@@ -10,7 +10,7 @@ void showOffer2025(int date);
 
 // fantasy & water kingdom
 void fantasyKingdomWelcoming();
-void waterKingdomWelcoming();
+void waterKingdomWelcoming(int age, float height);
 
 // entryexit.c
 void initEntryExitSystem();
