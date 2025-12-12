@@ -14,6 +14,7 @@ void initEntryExitSystem();
 void enterAsLocal(char name[], int age, float height);
 void enterAsVIP(char name[], int age, float height);
 void entryExitSystem();
+void restaurant();
 
 // GLOBAL (declared in entryexit.c)
 extern char visitorNameGlobal[];
@@ -86,8 +87,8 @@ startParkChoice:
     printf("=================================================\n");
     printf("> ");
 
-        int park;
-        scanf("%d", &park);
+    int park;
+    scanf("%d", &park);
 
     if (park == 1) {
         fantasyKingdomWelcoming();
@@ -122,7 +123,8 @@ postParkMenu:
     printf("3) Entry/Exit System\n");
     printf("4) View Calendar\n");
     printf("5) View Offers\n");
-    printf("6) Exit Program\n");
+    printf("6) Go to restaurant\n");
+    printf("7) Exist program\n");
     printf("==================================================================\n");
     printf("> ");
 
@@ -145,6 +147,9 @@ postParkMenu:
             showOffer2025(selectedDate);
             goto postParkMenu;
         } else if (nextAction == 6) {
+            restaurant();
+            goto postParkMenu;
+        } else if (nextAction == 7) {
             printf("Goodbye!\n");
             return 0;
         } else {

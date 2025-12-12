@@ -467,8 +467,13 @@ void userStartsRiding(int waterKingdomUserRideChoises[], int arrIdx) {
     int rideNumber;
     chooseAgainToStartRiding:
         printf("Choose the ride number you want to go \n");
+        printf("Or type 0 to exit\n");
         printf("> ");
         scanf("%d", &rideNumber);
+
+        if (rideNumber == 0) {
+            return;
+        }
 
         if (rideNumber == 1) {
             int count = 0;
