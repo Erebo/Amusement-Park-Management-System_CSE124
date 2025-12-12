@@ -128,6 +128,7 @@ static int completedHeritage[50] = {0};
 extern int visitorAge;
 extern float visitorHeight;
 extern int childRidePermission;
+extern char visitorNameGlobal[];
 
 /* ============================================================
    Read last visitor name from userData.txt
@@ -345,9 +346,6 @@ void FK_takeAdultRide() {
 
     FK_enqueue(&adultRides[idx].queue, currentVisitor);
 
-    char name[MAX_NAME_LEN];
-    FK_dequeue(&adultRides[idx].queue, name);
-
     printf("\n========================================\n");
     printf("[COMPLETED] RIDE COMPLETED\n");
     printf("========================================\n");
@@ -402,9 +400,6 @@ void FK_takeChildRide() {
     }
 
     FK_enqueue(&childrenRides[idx].queue, currentVisitor);
-
-    char out[MAX_NAME_LEN];
-    FK_dequeue(&childrenRides[idx].queue, out);
 
     printf("\n========================================\n");
     printf("[COMPLETED] RIDE COMPLETED\n");
@@ -465,10 +460,9 @@ void fantasyKingdomWelcoming() {
 
     buildFantasyKingdom();
 
-    if (!getLastVisitorName(currentVisitor, sizeof(currentVisitor))) {
-        printf("Enter your name: ");
-        scanf(" %[^\n]", currentVisitor);
-    }
+    /* Use current visitor name from main */
+    strncpy(currentVisitor, visitorNameGlobal, MAX_NAME_LEN - 1);
+    currentVisitor[MAX_NAME_LEN - 1] = '\0';
 
     printf("\n=============== WELCOME %s TO FANTASY KINGDOM ===============\n",
            currentVisitor);
