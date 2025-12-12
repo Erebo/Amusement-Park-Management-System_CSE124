@@ -95,7 +95,8 @@ startParkChoice:
         fantasyKingdomWelcoming();
     }
     else if (park == 2) {
-        waterKingdomWelcoming();
+        waterKingdomWelcoming(age, height);
+
     }
     else if (park == 3) {
         entryExitSystem();
