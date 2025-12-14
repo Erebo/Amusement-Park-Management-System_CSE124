@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 5
+#define MAX 5  
+
 
 struct OrderStack {
     char orders[MAX][30];  
@@ -10,9 +11,11 @@ struct OrderStack {
 
 struct OrderStack stack;
 
+
 void initializeStack() {
     stack.top = -1;
 }
+
 
 void placeOrder() {
     if (stack.top == MAX - 1) {
@@ -27,6 +30,7 @@ void placeOrder() {
     printf("Order added: %s\n", stack.orders[stack.top]);
 }
 
+
 void serveOrder() {
     if (stack.top == -1) {
         printf("\nNo orders to serve.\n");
@@ -36,6 +40,7 @@ void serveOrder() {
     printf("Serving order: %s\n", stack.orders[stack.top]);
     stack.top--;
 }
+
 
 void showOrders() {
     if (stack.top == -1) {
@@ -48,6 +53,7 @@ void showOrders() {
         printf("- %s\n", stack.orders[i]);
     }
 }
+
 
 void restaurant() {
     int choice;
