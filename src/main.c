@@ -23,7 +23,6 @@ extern int childOnly;
 extern int childRidePermission;
 
 int main() {
-
     initEntryExitSystem();
 
     int passType;
@@ -38,6 +37,11 @@ int main() {
     printf("> ");
 
     scanf("%d", &passType);
+
+    if (passType == 3) {
+        printf("Exiting.\n");
+        return 0;
+    }
 
     int age;
     float height;
@@ -54,13 +58,8 @@ int main() {
 
     if (passType == 1) {
         enterAsLocal(name, age, height);
-    }
-    else if (passType == 2) {
-        enterAsVIP(name, age, height);
-    }
-    else {
-        printf("Exiting.\n");
-        return 0;
+    } else if (passType == 2) {
+        enterAsVIP(name, age, height);  
     }
 
     printDecember2025Calendar();
@@ -85,22 +84,19 @@ startParkChoice:
 
     if (park == 1) {
         fantasyKingdomWelcoming();
-    }
-    else if (park == 2) {
+    } else if (park == 2) {
         waterKingdomWelcoming(age, height);
 
-    }
-    else if (park == 3) {
+    } else if (park == 3) {
         entryExitSystem();
-    }
-    else if (park == 4) {
+    } else if (park == 4) {
         printf("Goodbye!\n");
         return 0;
-    }
-    else {
+    } else {
         printf("Invalid option.\n");
         goto startParkChoice;
     }
+
 postParkMenu:
 
     printf("\n==================================================================\n");
@@ -117,38 +113,38 @@ postParkMenu:
     printf("==================================================================\n");
     printf("> ");
 
-        int nextAction;
-        scanf("%d", &nextAction);
+    int nextAction;
+    scanf("%d", &nextAction);
 
-        if (nextAction == 1) {
-            fantasyKingdomWelcoming();
-            goto postParkMenu;
-        } else if (nextAction == 2) {
-            waterKingdomWelcoming(age, height);
-            goto postParkMenu;
-        } else if (nextAction == 3) {
-            entryExitSystem();
-            goto postParkMenu;
-        } else if (nextAction == 4) {
-            printDecember2025Calendar();
-            goto postParkMenu;
-        } else if (nextAction == 5) {
-            showOffer2025(selectedDate);
-            goto postParkMenu;
-        } else if (nextAction == 6) {
-            restaurant();
-            goto postParkMenu;
-        } else if (nextAction == 7) {
-            carParking();
-        } else if (nextAction == 8) {
-            printf("Goodbye!\n");
-            return 0;
-        }
-        
-        else {
-            printf("Invalid option.\n");
-            goto postParkMenu;
-        }
+    if (nextAction == 1) {
+        fantasyKingdomWelcoming();
+        goto postParkMenu;
+    } else if (nextAction == 2) {
+        waterKingdomWelcoming(age, height);
+        goto postParkMenu;
+    } else if (nextAction == 3) {
+        entryExitSystem();
+        goto postParkMenu;
+    } else if (nextAction == 4) {
+        printDecember2025Calendar();
+        goto postParkMenu;
+    } else if (nextAction == 5) {
+        showOffer2025(selectedDate);
+        goto postParkMenu;
+    } else if (nextAction == 6) {
+        restaurant();
+        goto postParkMenu;
+    } else if (nextAction == 7) {
+        carParking();
+    } else if (nextAction == 8) {
+        printf("Goodbye!\n");
+        return 0;
+    }
+
+    else {
+        printf("Invalid option.\n");
+        goto postParkMenu;
+    }
 
     return 0;
 }

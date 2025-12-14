@@ -94,10 +94,6 @@ void FK_printStack(RideStack *s) {
     }
 }
 
-/* ============================================================
-   GLOBALS FOR THIS MODULE
-   ============================================================ */
-
 static Ride *adultRides = NULL;
 static Ride *childrenRides = NULL;
 static Ride *heritageSites = NULL;
@@ -110,12 +106,10 @@ static RideStack rideHistory;
 static int remainingRides = 12;
 static char currentVisitor[MAX_NAME_LEN] = "";
 
-/* Track completed rides */
 static int completedAdult[50] = {0};
 static int completedChildren[50] = {0};
 static int completedHeritage[50] = {0};
 
-/* EXTERN from entryexit.c */
 extern int visitorAge;
 extern float visitorHeight;
 extern int childRidePermission;
@@ -136,7 +130,7 @@ int getLastVisitorName(char *outName, int size) {
     char *p = strstr(last, "name:");
     if (!p) return 0;
 
-    p += 5; // skip "name:"
+    p += 5; 
     while (*p == ' ') p++;
 
     char *q = strstr(p, " age:");
@@ -150,10 +144,6 @@ int getLastVisitorName(char *outName, int size) {
     return 1;
 }
 
-/* ============================================================
-   Create rides
-   ============================================================ */
-
 Ride *FK_createRides(const char *names[], int count, const int durations[]) {
     Ride *arr = malloc(sizeof(Ride) * count);
     for (int i = 0; i < count; i++) {
@@ -164,10 +154,6 @@ Ride *FK_createRides(const char *names[], int count, const int durations[]) {
     }
     return arr;
 }
-
-/* ============================================================
-   BUILD ALL SECTIONS
-   ============================================================ */
 
 void buildFantasyKingdom() {
 
@@ -209,10 +195,6 @@ void buildFantasyKingdom() {
     FK_initStack(&rideHistory);
 }
 
-/* ============================================================
-   UI DISPLAYS
-   ============================================================ */
-
 void FK_showRideList() {
     printf("\n================== FANTASY KINGDOM RIDE LIST ==================\n");
 
@@ -241,7 +223,6 @@ void FK_showRideList() {
     printf("=================================================================\n");
 }
 
-/* Display only Adult Rides */
 void FK_showAdultRides() {
     printf("\n================== ADULT RIDES ==================\n");
     for (int i = 0; i < adultCount; i++) {
@@ -276,7 +257,6 @@ void FK_showChildrenRides() {
     printf("==================================================\n");
 }
 
-/* Display only Heritage Sites */
 void FK_showHeritageSites() {
     printf("\n================== HERITAGE SITES ==================\n");
     for (int i = 0; i < heritageCount; i++) {
@@ -289,12 +269,7 @@ void FK_showHeritageSites() {
     printf("==================================================\n");
 }
 
-/* ============================================================
-   ADULT RIDE OPERATION
-   ============================================================ */
-
 void FK_takeAdultRide() {
-    /* Check age and height restrictions */
     if (visitorAge < 10 || visitorHeight < 4.0) {
         printf("\n========================================\n");
         printf("[ACCESS DENIED] - NOT READY YET\n");
@@ -320,7 +295,6 @@ void FK_takeAdultRide() {
 
     int idx = choice - 1;
 
-    /* Check if ride is already completed */
     if (completedAdult[idx]) {
         printf("\n[WARNING] You have already completed this ride!\n");
         return;
@@ -349,10 +323,6 @@ void FK_takeAdultRide() {
     FK_showAdultRides();
 }
 
-/* ============================================================
-   CHILD RIDE OPERATION
-   ============================================================ */
-
 void FK_takeChildRide() {
     /* Check if child rides are permitted */
     if (!childRidePermission) {
@@ -375,7 +345,6 @@ void FK_takeChildRide() {
 
     int idx = choice - 1;
 
-    /* Check if ride is already completed */
     if (completedChildren[idx]) {
         printf("\n[WARNING] You have already completed this ride!\n");
         return;
@@ -405,10 +374,6 @@ void FK_takeChildRide() {
     FK_showChildrenRides();
 }
 
-/* ============================================================
-   HERITAGE VISIT
-   ============================================================ */
-
 void FK_visitHeritage() {
     FK_showHeritageSites();
     printf("\nSelect Heritage Site (1-%d) or 0 to cancel: ", heritageCount);
@@ -419,7 +384,6 @@ void FK_visitHeritage() {
 
     int idx = choice - 1;
 
-    /* Check if site is already visited */
     if (completedHeritage[idx]) {
         printf("\n[WARNING] You have already visited this site!\n");
         return;
@@ -438,10 +402,6 @@ void FK_visitHeritage() {
     printf("\n--- Updated Heritage Sites List ---\n");
     FK_showHeritageSites();
 }
-
-/* ============================================================
-   MAIN MODULE ENTRY
-   ============================================================ */
 
 void fantasyKingdomWelcoming() {
 

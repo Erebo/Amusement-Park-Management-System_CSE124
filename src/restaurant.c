@@ -1,22 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 5  // maximum number of orders
+#define MAX 5
 
-// Stack structure
 struct OrderStack {
-    char orders[MAX][30];  // food names
+    char orders[MAX][30];  
     int top;
 };
 
 struct OrderStack stack;
 
-// Initialize stack
 void initializeStack() {
     stack.top = -1;
 }
 
-// Push order into stack
 void placeOrder() {
     if (stack.top == MAX - 1) {
         printf("\nRestaurant is full! Cannot take more orders.\n");
@@ -30,7 +27,6 @@ void placeOrder() {
     printf("Order added: %s\n", stack.orders[stack.top]);
 }
 
-// Pop order from stack
 void serveOrder() {
     if (stack.top == -1) {
         printf("\nNo orders to serve.\n");
@@ -41,7 +37,6 @@ void serveOrder() {
     stack.top--;
 }
 
-// Display all orders
 void showOrders() {
     if (stack.top == -1) {
         printf("\nNo current orders.\n");
@@ -54,7 +49,6 @@ void showOrders() {
     }
 }
 
-// Main restaurant function (called from main.c)
 void restaurant() {
     int choice;
     initializeStack();

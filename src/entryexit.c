@@ -5,18 +5,12 @@
 #define MAX_NAME 50
 #define MAX_VISITORS 100
 
-//------------------------------------------------------
-// GLOBAL VISITOR PROFILE (Shared Across Modules)
-//------------------------------------------------------
 char visitorNameGlobal[MAX_NAME];
 int visitorAge = 0;
 float visitorHeight = 0.0;
-int childRidePermission = 0;   // 1 = adult can buy child tickets
-int childOnly = 0;             // 1 = visitor is under age 10
+int childRidePermission = 0;  
+int childOnly = 0;            
 
-//------------------------------------------------------
-// QUEUE + STACK STRUCTURES
-//------------------------------------------------------
 typedef struct {
     char names[MAX_VISITORS][MAX_NAME];
     int front, rear;
@@ -27,28 +21,22 @@ typedef struct {
     int top;
 } Stack;
 
-//------------------------------------------------------
-// GLOBAL QUEUE & STACK INSTANCES
-//------------------------------------------------------
 Queue localQueue;
 Stack vipStack;
 
-//------------------------------------------------------
-// QUEUE FUNCTIONS
-//------------------------------------------------------
-void initQueue(Queue *q) {
+void initQueue(Queue* q) {
     q->front = q->rear = -1;
 }
 
-int isQueueFull(Queue *q) { 
-    return q->rear == MAX_VISITORS - 1; 
+int isQueueFull(Queue* q) {
+    return q->rear == MAX_VISITORS - 1;
 }
 
-int isQueueEmpty(Queue *q) { 
-    return q->front == -1; 
+int isQueueEmpty(Queue* q) {
+    return q->front == -1;
 }
 
-void enqueue(Queue *q, const char *name) {
+void enqueue(Queue* q, const char* name) {
     if (isQueueFull(q)) {
         printf("Local Queue is full!\n");
         return;
@@ -61,11 +49,11 @@ void enqueue(Queue *q, const char *name) {
     strcpy(q->names[q->rear], name);
 }
 
-char* dequeue(Queue *q) {
-    if (isQueueEmpty(q)) 
+char* dequeue(Queue* q) {
+    if (isQueueEmpty(q))
         return NULL;
 
-    char *name = q->names[q->front];
+    char* name = q->names[q->front];
 
     if (q->front == q->rear)
         initQueue(q);
@@ -75,22 +63,19 @@ char* dequeue(Queue *q) {
     return name;
 }
 
-//------------------------------------------------------
-// STACK FUNCTIONS
-//------------------------------------------------------
-void initStack(Stack *s) {
+void initStack(Stack* s) {
     s->top = -1;
 }
 
-int isStackFull(Stack *s) { 
-    return s->top == MAX_VISITORS - 1; 
+int isStackFull(Stack* s) {
+    return s->top == MAX_VISITORS - 1;
 }
 
-int isStackEmpty(Stack *s) { 
-    return s->top == -1; 
+int isStackEmpty(Stack* s) {
+    return s->top == -1;
 }
 
-void push(Stack *s, const char *name) {
+void push(Stack* s, const char* name) {
     if (isStackFull(s)) {
         printf("VIP Stack is full!\n");
         return;
@@ -99,14 +84,14 @@ void push(Stack *s, const char *name) {
     strcpy(s->names[s->top], name);
 }
 
-char* pop(Stack *s) {
-    if (isStackEmpty(s)) 
+char* pop(Stack* s) {
+    if (isStackEmpty(s))
         return NULL;
 
     return s->names[s->top--];
 }
 
-void enterAsLocal(char name[], int age, float height){
+void enterAsLocal(char name[], int age, float height) {
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
     visitorHeight = height;
@@ -116,8 +101,7 @@ void enterAsLocal(char name[], int age, float height){
     printf("%s added to Local Queue (ENTRY Gate)\n", name);
 }
 
-void enterAsVIP(char name[], int age, float height)
-{
+void enterAsVIP(char name[], int age, float height) {
     strcpy(visitorNameGlobal, name);
     visitorAge = age;
     visitorHeight = height;
@@ -128,7 +112,7 @@ void enterAsVIP(char name[], int age, float height)
 }
 
 void processLocalEntry() {
-    char *name = dequeue(&localQueue);
+    char* name = dequeue(&localQueue);
 
     if (!name) {
         printf("No local visitors waiting.\n");
@@ -138,7 +122,7 @@ void processLocalEntry() {
 }
 
 void processVIPEntry() {
-    char *name = pop(&vipStack);
+    char* name = pop(&vipStack);
 
     if (!name) {
         printf("No VIP visitors waiting.\n");
@@ -162,10 +146,16 @@ void entryExitSystem() {
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1: processLocalEntry(); break;
-            case 2: processVIPEntry(); break;
-            case 3: return;
-            default: printf("Invalid option!\n");
+            case 1:
+                processLocalEntry();
+                break;
+            case 2:
+                processVIPEntry();
+                break;
+            case 3:
+                return;
+            default:
+                printf("Invalid option!\n");
         }
     }
 }
