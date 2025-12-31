@@ -32,7 +32,6 @@ void showRegularOffer(int date) {
     printf("------------------------------------------------------------\n");
     printf("1) Fantasy Kingdom : 12 rides + Entry = 1000 tk\n");
     printf("2) Water Kingdom   : Unlimited rides + Entry = 1000 tk\n");
-    printf("3) Combo Offer     : Fantasy + Water + Entry = 1500 tk\n");
     printf("------------------------------------------------------------\n");
 }
 
@@ -49,24 +48,9 @@ void showHolidayOffer(int date) {
     printf("------------------------------------------------------------\n");
     printf("  HOLIDAY OFFER - DECEMBER %d, 2025 (FRIDAY/SATURDAY)\n", date);
     printf("------------------------------------------------------------\n");
-    printf("1) Only Entry\n");
-    printf("2) Fantasy Kingdom\n");
-    printf("3) Water Kingdom\n");
+    printf("1) Fantasy Kingdom\n");
+    printf("2) Water Kingdom\n");
     printf("------------------------------------------------------------\n");
-}
-
-void takeOfferChoice(int maxOption) {
-    int choice;
-    do {
-        printf("Choose an offer: ");
-        scanf("%d", &choice);
-    } while (choice < 1 || choice > maxOption);
-
-    if (maxOption == 2) {
-        offerChoice = choice;
-    } else {
-        offerChoice = choice;
-    }
 }
 
 void showOffer2025(int date) {
@@ -79,12 +63,12 @@ void showOffer2025(int date) {
 
     if (strcmp(day, "Tuesday") == 0) {
         showFamilyDayOffer(date);
-        takeOfferChoice(2);
+        // takeOfferChoice(2);
     } else if (strcmp(day, "Friday") == 0 || strcmp(day, "Saturday") == 0) {
         showHolidayOffer(date);
-        takeOfferChoice(3);
+        // takeOfferChoice(3);
     } else {
         showRegularOffer(date);
-        takeOfferChoice(3);
+        // takeOfferChoice(3);
     }
 }

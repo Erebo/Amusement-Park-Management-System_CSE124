@@ -39,7 +39,7 @@ int main() {
     scanf("%d", &passType);
 
     if (passType == 3) {
-        printf("Exiting.\n");
+        printf("Goodbye!\n");
         return 0;
     }
 
@@ -59,7 +59,9 @@ int main() {
     if (passType == 1) {
         enterAsLocal(name, age, height);
     } else if (passType == 2) {
-        enterAsVIP(name, age, height);  
+        enterAsVIP(name, age, height);
+    } else if (passType == 3) {
+        return 0;
     }
 
     printDecember2025Calendar();
@@ -68,48 +70,66 @@ int main() {
     printf("\nSelected date: December %d, 2025\n", selectedDate);
 
     showOffer2025(selectedDate);
-
-startParkChoice:
-
-    printf("\n================ PARK SELECTION ================\n");
-    printf("1) Fantasy Kingdom\n");
-    printf("2) Water Kingdom\n");
-    printf("3) Entry/Exit System\n");
-    printf("4) Exit Program\n");
-    printf("=================================================\n");
-    printf("> ");
-
-    int park;
-    scanf("%d", &park);
-
-    if (park == 1) {
-        fantasyKingdomWelcoming();
-    } else if (park == 2) {
-        waterKingdomWelcoming(age, height);
-
-    } else if (park == 3) {
-        entryExitSystem();
-    } else if (park == 4) {
-        printf("Goodbye!\n");
-        return 0;
-    } else {
-        printf("Invalid option.\n");
-        goto startParkChoice;
-    }
+    int choice;
+    printf("Choose an offer: ");
+    scanf("%d", &choice);
+    startParkChoice:
+        if (choice == 1) {
+            printf("\n================ PARK SELECTION ================\n");
+            printf("1) Fantasy Kingdom\n");
+            printf("2) Entry/Exit System\n");
+            printf("3) Exit Program\n");
+            printf("=================================================\n");
+            printf("> ");
+        
+            int park;
+            scanf("%d", &park);
+        
+            if (park == 1) {
+                fantasyKingdomWelcoming();
+            } else if (park == 2) {
+                entryExitSystem();
+            } else if (park == 3) {
+                printf("Goodbye!\n");
+                return 0;
+            }
+        } else if (choice == 2)
+        {
+            printf("\n================ PARK SELECTION ================\n");
+            printf("1) Water Kingdom\n");
+            printf("2) Entry/Exit System\n");
+            printf("3) Exit Program\n");
+            printf("=================================================\n");
+            printf("> ");
+        
+            int park;
+            scanf("%d", &park);
+        
+            if (park == 1) {
+                waterKingdomWelcoming(age, height);
+            } else if (park == 2) {
+                entryExitSystem();
+            } else if (park == 3) {
+                printf("Goodbye!\n");
+                return 0;
+            }
+        } else {
+            printf("Invalid option.\n");
+            goto startParkChoice;
+        }
 
 postParkMenu:
 
     printf("\n==================================================================\n");
     printf("                WHAT DO YOU WANT TO DO NEXT?\n");
     printf("==================================================================\n");
-    printf("1) Go to Fantasy Kingdom\n");
-    printf("2) Go to Water Kingdom\n");
-    printf("3) Entry/Exit System\n");
-    printf("4) View Calendar\n");
-    printf("5) View Offers\n");
-    printf("6) Go to restaurant\n");
-    printf("7) Park your vehicle\n");
-    printf("8) Exist program\n");
+    printf("1) Choose a park\n");
+    printf("2) Entry/Exit System\n");
+    printf("3) View Calendar\n");
+    printf("4) View Offers\n");
+    printf("5) Go to restaurant\n");
+    printf("6) Park your vehicle\n");
+    printf("7) Exist program\n");
     printf("==================================================================\n");
     printf("> ");
 
@@ -117,31 +137,39 @@ postParkMenu:
     scanf("%d", &nextAction);
 
     if (nextAction == 1) {
-        fantasyKingdomWelcoming();
+        printf("1) Fantasy Kingdom\n");
+        printf("1) Water Kingdom\n");
+        printf("> ");
+
+        int choice;
+        scanf("%d", &choice);
+
+        if (choice == 1) {
+            fantasyKingdomWelcoming();
+        } else if (choice == 2) {
+            waterKingdomWelcoming(age, height);
+        }
+
         goto postParkMenu;
     } else if (nextAction == 2) {
-        waterKingdomWelcoming(age, height);
-        goto postParkMenu;
-    } else if (nextAction == 3) {
         entryExitSystem();
         goto postParkMenu;
-    } else if (nextAction == 4) {
+    } else if (nextAction == 3) {
         printDecember2025Calendar();
         goto postParkMenu;
-    } else if (nextAction == 5) {
+    } else if (nextAction == 4) {
         showOffer2025(selectedDate);
         goto postParkMenu;
-    } else if (nextAction == 6) {
+    } else if (nextAction == 5) {
         restaurant();
         goto postParkMenu;
-    } else if (nextAction == 7) {
+    } else if (nextAction == 6) {
         carParking();
-    } else if (nextAction == 8) {
+        goto postParkMenu;
+    } else if (nextAction == 7) {
         printf("Goodbye!\n");
         return 0;
-    }
-
-    else {
+    } else {
         printf("Invalid option.\n");
         goto postParkMenu;
     }
