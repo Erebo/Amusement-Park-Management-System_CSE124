@@ -17,9 +17,14 @@ Simply click on the `main.exe` file
 Navigate to the `src` folder and run: `gcc *.c -o main; .\main`
 
 ---
+## **📘 Project Report**
+
+The complete formal project report (including problem analysis, methodology, data structures used, and results) is available here:
+
+📄 [View Project Report](ProjectReport.pdf)
+
+---
 
 ## 📄 License
 
 This project is released under the **[MIT License](LICENSE)**.
-
----
